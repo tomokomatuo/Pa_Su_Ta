@@ -10,6 +10,6 @@ class User < ApplicationRecord
   validates :address, presence: true
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
-  enum gender: { man: 0, woman: 1}
-  mount_uploader :icon, ImageUploader
+  enum gender: { 男性: 0, 女性: 1}
+  mount_uploader :image, ImageUploader
 end

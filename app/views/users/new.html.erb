@@ -10,29 +10,46 @@
   </div>
 <% end %>
 <%= form_with(model: @user, local: true) do |f| %>  
+  
   <div class="field">
     <%= f.label :氏名 %>
     <%= f.text_field :name %>
   </div>
+  
   <div class="field">
     <%= f.label :ニックネーム %>
     <%= f.text_field :nickname %>
   </div>
+  
   <div class="field">
     <%= f.label :住所 %>
     <%= f.text_field :address %>
   </div>
+  
   <div class="field">
     <%= f.label :電話番号 %>
     <%= f.text_field :phone_number %>
   </div>
+  
   <div class="field">
     <%= f.label :生年月日 %>
     <%= f.date_field :birthday, value: Time.now.strftime("%Y-%m-%d") %>
   </div>
+  
   <div class="field">
-    <%= f.label :性別 %>
-    <%= f.select :gender, :name, User.genders.keys.to_a %>
+    <%= f.label :年齢 %>
+    <%= f.select :age, [["20代", "20代"], ["30代", "30代"],  ["40代", "40代"], ["50代以上", "50代以上"]], :prompt => "選択してください" %>
+  </div>
+  
+  <div class="field">
+  <span class="gender_field">性別</span><br>
+  <div class="radio-inline">
+    <%= f.radio_button :gender, :男性, checked: "checked" %>
+    <%= f.label :男性, class: "gender_label" %>
+  </div>
+  <div class="radio-inline">
+    <%= f.radio_button :gender, :女性 %>
+    <%= f.label :女性, class: "gender_label" %>
   </div>
   <div class="field">
     <%= f.label :自己紹介 %>
@@ -40,7 +57,7 @@
   </div>
   <div class="field">
     <%= f.label :プロフィール写真 %>
-    <%= f.file_field :icon %>
+    <%= f.file_field :image %>
   </div>
   <div class="field">
     <%= f.label :email %>

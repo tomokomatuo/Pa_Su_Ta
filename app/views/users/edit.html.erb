@@ -1,40 +1,72 @@
 <%= link_to "マイページ", user_path(current_user.id) %>
 <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
-<h1>プロフィール編集</h1>
 <%= form_with(model: @user, local: true) do |f| %>  
-    <div class="file_field">
+  
+    <div class="field">
       <%= f.label :氏名 %>
       <%= f.text_field :name %>
     </div>
-    <div class="file_field">
+    
+    <div class="field">
+      <%= f.label :ニックネーム %>
+      <%= f.text_field :nickname %>
+    </div>
+    
+    <div class="field">
       <%= f.label :住所 %>
       <%= f.text_field :address %>
     </div>
-    <div class="file_field">
+    
+    <div class="field">
       <%= f.label :電話番号 %>
       <%= f.text_field :phone_number %>
     </div>
-    <div class="file_field">
+    
+    <div class="field">
       <%= f.label :生年月日 %>
       <%= f.date_field :birthday, value: Time.now.strftime("%Y-%m-%d") %>
     </div>
-    <div class="file_field">
-      <%= f.label :性別 %>
-     
+    
+    <div class="field">
+      <%= f.label :年齢 %>
+      <%= f.select :age, [["20代", "20代"], ["30代", "30代"],  ["40代", "40代"], ["50代以上", "50代以上"]], :prompt => "選択してください" %>
     </div>
-    <div class="file_field">
+    
+    <div class="field">
+    <span class="gender_field">性別</span><br>
+    <div class="radio-inline">
+      <%= f.radio_button :gender, :男性, checked: "checked" %>
+      <%= f.label :男性, class: "gender_label" %>
+    </div>
+    <div class="radio-inline">
+      <%= f.radio_button :gender, :女性 %>
+      <%= f.label :女性, class: "gender_label" %>
+    </div>
+    <div class="field">
+      <%= f.label :自己紹介 %>
+      <%= f.text_area :content %>
+    </div>
+    <div class="field">
+      <%= f.label :プロフィール写真 %>
+      <%= f.file_field :image %>
+    </div>
+    <div class="field">
       <%= f.label :email %>
       <%= f.email_field :email %>
     </div>
-    <div class="file_field">
-      <%= f.label :年齢 %>
-      <%= f.text_field :age %>
+    <div class="field">
+      <%= f.label :パスワード %>
+      <%= f.password_field :password %>
     </div>
-    <div class="file_field">
-      <%= f.label :自己紹介 %>
-      <%= f.text_field :content %>
+    <div class="field">
+      <%= f.label :パスワード確認 %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <div class="field">
+      <%= f.check_box :adviser %>
+      <%= f.label :スタイリストになる %>
     </div>
     <div class="action">
-    <%= f.submit "プロフィール作成" %>
+    <%= f.submit "更新する" %>
     </div>
   <% end %>

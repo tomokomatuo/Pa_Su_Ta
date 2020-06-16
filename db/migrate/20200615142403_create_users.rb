@@ -8,11 +8,11 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :address
       t.string :phone_number, unique: true
       t.date :birthday
-      t.integer :age, default: 0
+      t.string :age
       t.integer :gender, null: false, default: 0
       t.text :content
-      t.text :icon
-      t.text :clothes_image
+      t.text :image
+      t.text :clothes_icon
       t.boolean :adviser, null: false, default: false
       t.boolean :hide_gender, null: false, default: false
       

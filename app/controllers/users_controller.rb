@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
   
+  def index
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
+  end
   def new
     @user = User.new
   end
@@ -7,7 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to edit_user_path(@user.id)
+      redirect_to user_path(@user.id)
     else
       render :new
     end
@@ -25,8 +29,8 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :nickname, :birthday,
-                                 :address, :phone_number, :icon, :gender, :content,
-                                 :age, :adviser, :hide_gender, :clothes_image,
+                                 :address, :phone_number, :image, :gender, :content,
+                                 :age, :adviser, :hide_gender, :clothes_icon,
                                  :password_confirmation)
   end
 end

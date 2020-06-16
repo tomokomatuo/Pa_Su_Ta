@@ -1,3 +1,14 @@
-<p>
-  <%= image_tag @feed.image.url %>
-</p>
+<% if @user.adviser? %>
+<%= link_to '相談者一覧を見る', advisers_path %>
+<% else %>
+<%= link_to 'スタイリスト一覧を見る', users_path %>
+<% end %>
+<h1><%= @user.nickname %>さんのページ</h1>
+
+<%= @user.age %>
+<%= @user.gender %>
+<%= @user.content %>
+
+
+
+

@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 2020_06_15_142403) do
     t.string "address"
     t.string "phone_number"
     t.date "birthday"
-    t.integer "age", default: 0
+    t.string "age"
     t.integer "gender", default: 0, null: false
     t.text "content"
-    t.text "icon"
-    t.text "clothes_image"
+    t.text "image"
+    t.text "clothes_icon"
     t.boolean "adviser", default: false, null: false
     t.boolean "hide_gender", default: false, null: false
     t.datetime "created_at", null: false
