@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :advisers, only: [:index]
   resources :relationships, only: [:create, :destroy]
+  resources :conversations do
+    resources :messages
+  end
 end
