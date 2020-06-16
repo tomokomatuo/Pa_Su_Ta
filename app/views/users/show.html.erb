@@ -3,7 +3,7 @@
 <% else %>
 <%= link_to 'スタイリスト一覧を見る', users_path %>
 <% end %>
-<%= link_to 'マイページ編集', edit_user_path(@user) %>
+<%= link_to 'マイページ編集', edit_user_path(current_user.id) %>
 <h1><%= current_user.nickname %>さんのページ</h1>
 
 <%= @user.age %>
