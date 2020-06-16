@@ -24,8 +24,11 @@ class UsersController < ApplicationController
   def edit
   end
 
-  
-  
+  def destroy
+   current_user.destroy
+   redirect_to new_user_path
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :nickname, :birthday,

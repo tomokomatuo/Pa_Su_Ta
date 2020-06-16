@@ -1,14 +1,12 @@
-<h1>スタイリストを探しているユーザー一覧</h1>
+<h1>相談者一覧</h1>
 <%= search_form_for @q do |f| %>
-  <%= f.label :content, "Keyword" %>
+  <%= f.label :content, "検索" %>
   <%= f.search_field :content_cont %>
 
-  <%#= f.label :age %>
-  <%#= f.number_field :age_gteq %>以上〜
-  <%#= f.number_field :age_lt %>未満
+  <%#= f.label :年齢 %>
+  
 
-  <!--ここから追加-->
-  <%= f.label :gender %>
+  <%= f.label :性別 %>
 　<%= f.radio_button :gender_eq, '', {:checked => true} %>指定なし
   <%= f.radio_button :gender_eq, 1 %>男性
   <%= f.radio_button :gender_eq, 2 %>女性
@@ -27,15 +25,18 @@
 </tr>
 
 <% @users.each do |user| %>
+  <% unless user.adviser? %>
   <tr>
     <td><%= user.nickname %></td>
     <td><%= user.age %></td>
-    <% unless @user.hide_gender? %>
+    <% unless user.hide_gender? %>
     <td><%= user.gender %></td>
     <% end %>
     <td><%= user.content %></td>
     <td><%= link_to '詳細を見る', user_path(user.id) %>
   </tr>
+  <% end %>
 <% end %>
 
 </table>
+      
