@@ -1,0 +1,40 @@
+<%= link_to "マイページ", user_path(current_user.id) %>
+<%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+<h1>プロフィール編集</h1>
+<%= form_with(model: @user, local: true) do |f| %>  
+    <div class="file_field">
+      <%= f.label :氏名 %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="file_field">
+      <%= f.label :住所 %>
+      <%= f.text_field :address %>
+    </div>
+    <div class="file_field">
+      <%= f.label :電話番号 %>
+      <%= f.text_field :phone_number %>
+    </div>
+    <div class="file_field">
+      <%= f.label :生年月日 %>
+      <%= f.date_field :birthday, value: Time.now.strftime("%Y-%m-%d") %>
+    </div>
+    <div class="file_field">
+      <%= f.label :性別 %>
+     
+    </div>
+    <div class="file_field">
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+    </div>
+    <div class="file_field">
+      <%= f.label :年齢 %>
+      <%= f.text_field :age %>
+    </div>
+    <div class="file_field">
+      <%= f.label :自己紹介 %>
+      <%= f.text_field :content %>
+    </div>
+    <div class="action">
+    <%= f.submit "プロフィール作成" %>
+    </div>
+  <% end %>
