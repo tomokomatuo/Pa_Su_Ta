@@ -20,6 +20,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @comments = @user.comments
+    @comment = @user.comments.build
   end
 
   def edit
