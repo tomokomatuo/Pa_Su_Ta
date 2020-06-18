@@ -5,13 +5,12 @@ class Relationship < ApplicationRecord
   def follow!(other_user)
     active_relationships.create!(followed_id: other_user.id)
   end
+
+  def unfollow!(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
   
   def following?(other_user)
     active_relationships.find_by(followed_id: other_user.id)
-  end
-
-  def destroy
-    @user = Relationship.find(params[:id]).followed
-    current_user.unfollow!(@user)
   end
 end

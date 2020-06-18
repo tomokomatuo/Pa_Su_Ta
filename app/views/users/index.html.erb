@@ -1,15 +1,18 @@
+<%= link_to 'マイページ編集', edit_user_path(current_user.id) %>
+<%= link_to "マイページ", user_path(current_user.id) %>
+
 <h1>スタイリスト一覧</h1>
 <%= search_form_for @q do |f| %>
   <%= f.label :content, "検索" %>
   <%= f.search_field :content_cont %>
 
-  <%#= f.label :年齢 %>
+  <%= f.label :年齢 %>
+  <%= f.select :age_eq, options_for_select([['指定なし', ''], ['20代','20代'], ['30代','30代'], ['40代','40代'], ['50代以上','50代以上']], :selected => :age) %>
   
-
   <%= f.label :性別 %>
 　<%= f.radio_button :gender_eq, '', {:checked => true} %>指定なし
-  <%= f.radio_button :gender_eq, 1 %>男性
-  <%= f.radio_button :gender_eq, 2 %>女性
+  <%= f.radio_button :gender_eq, 0 %>男性
+  <%= f.radio_button :gender_eq, 1 %>女性
   <!--ここまで追加-->
 
   <%= f.submit "検索" %>
@@ -21,7 +24,7 @@
   <th>ニックネーム<th>
   <th>年齢<th>
   <th>性別<th>
-  <th>服に関するお悩み<th>
+  <th>自己紹介<th>
 </tr>
 
 <% @users.each do |user| %>

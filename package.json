@@ -1,5 +1,8 @@
 {
   "name": "Pa_Su_Ta",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.5.1",
+    "rateyo": "^3.0.0-alpha.2"
+  }
 }

@@ -1,11 +1,11 @@
-<% if @user.adviser? %>
+<% if current_user.adviser? %>
 <%= link_to '相談者一覧を見る', advisers_path %>
 <% else %>
 <%= link_to 'スタイリスト一覧を見る', users_path %>
 <% end %>
 <%= link_to 'マイページ編集', edit_user_path(current_user.id) %>
 <h1><%= @user.nickname %>さんのページ</h1>
-
+<%= render 'stats' %>
 <%= @user.age %>
 <%= @user.gender %>
 <%= @user.content %>

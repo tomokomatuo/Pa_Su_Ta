@@ -1,3 +1,5 @@
+<%= link_to 'マイページ編集', edit_user_path(current_user.id) %>
+
 <h1>相談者一覧</h1>
 <%= search_form_for @q do |f| %>
   <%= f.label :content, "検索" %>
@@ -33,6 +35,8 @@
     <td><%= user.gender %></td>
     <% end %>
     <td><%= user.content %></td>
+    <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
+    <td><%= render 'follow_form', user: user %></td>
     <td><%= link_to '詳細を見る', user_path(user.id) %>
   </tr>
   <% end %>
