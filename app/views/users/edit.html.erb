@@ -1,5 +1,9 @@
+<% if current_user.adviser? %>
+<%= link_to '相談者一覧を見る', advisers_path %>
+<% else %>
+<%= link_to 'スタイリスト一覧を見る', users_path %>
+<% end %>
 <%= link_to "マイページ", user_path(current_user.id) %>
-<%= link_to "退会", user_path(current_user.id), data: { confirm: "退会しますか?" }, method: :delete %>
 <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
 
 <%= form_with(model: @user, local: true) do |f| %>  

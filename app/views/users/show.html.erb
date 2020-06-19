@@ -4,6 +4,8 @@
 <%= link_to 'スタイリスト一覧を見る', users_path %>
 <% end %>
 <%= link_to 'マイページ編集', edit_user_path(current_user.id) %>
+<%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+<%= link_to "退会", user_path(current_user.id), data: { confirm: "退会しますか?" }, method: :delete %>
 <h1><%= @user.nickname %>さんのページ</h1>
 <%= render 'stats' %>
 

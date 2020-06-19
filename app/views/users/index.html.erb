@@ -1,5 +1,6 @@
 <%= link_to 'マイページ編集', edit_user_path(current_user.id) %>
 <%= link_to "マイページ", user_path(current_user.id) %>
+<%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
 
 <h1>スタイリスト一覧</h1>
 <%= search_form_for @q do |f| %>
