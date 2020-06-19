@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :update, :edit, :destroy, :following, :followers]
   
   def index
     @q = User.ransack(params[:q])
@@ -19,28 +20,33 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @comments = @user.comments
-    @comment = @user.comments.build
+    @comment = current_user.comments.build
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def destroy
-   current_user.destroy
+   @user.destroy
    redirect_to new_user_path
+  end
+
+  def update
+    if @user.update(user_params)
+      session[:user_id] = @user.id
+      redirect_to user_path(@user.id)
+    else
+      render :new
+    end
   end
  
   def following
-    @user  = User.find(params[:id])
     @users = @user.following
     render 'show_follow'
   end
 
   def followers
-    @user  = User.find(params[:id])
     @users = @user.followers
     render 'show_follower'
   end
@@ -49,6 +55,10 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password, :nickname, :birthday,
                                  :address, :phone_number, :image, :gender, :content,
                                  :age, :adviser, :hide_gender, :clothes_icon,
-                                 :password_confirmation)
+                                 :password_confirmation, :image_cache)
+  end
+
+  def set_user
+    @user  = User.find(params[:id])
   end
 end

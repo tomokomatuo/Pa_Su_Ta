@@ -19,7 +19,7 @@
 
 <table>
 <tr>
-  <th>プロフィール写真<th>
+  <th>プロフィール画像<th>
   <th>ニックネーム<th>
   <th>年齢<th>
   <th>性別<th>
@@ -29,6 +29,7 @@
 <% @users.each do |user| %>
   <% unless user.adviser? %>
   <tr>
+    <td><%= image_tag user.image.url %></td>
     <td><%= user.nickname %></td>
     <td><%= user.age %></td>
     <% unless user.hide_gender? %>

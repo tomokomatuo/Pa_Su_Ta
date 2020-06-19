@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
       respond_to do |format|
         if @comment.update(comment_params)
           flash.now[:notice] = 'コメントが編集されました'
-          format.js { render :index }
+          format.js { render :index }…
         else
           flash.now[:notice] = 'コメントの編集に失敗しました'
           format.js { render :edit_error }

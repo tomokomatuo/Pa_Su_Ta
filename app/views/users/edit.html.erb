@@ -1,6 +1,7 @@
 <%= link_to "マイページ", user_path(current_user.id) %>
 <%= link_to "退会", user_path(current_user.id), data: { confirm: "退会しますか?" }, method: :delete %>
 <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+
 <%= form_with(model: @user, local: true) do |f| %>  
   
     <div class="field">
@@ -9,8 +10,8 @@
     </div>
     
     <div class="field">
-      <%= f.label :ニックネーム %>
-      <%= f.text_field :nickname %>
+      <%= f.label :email %>
+      <%= f.email_field :email %>
     </div>
     
     <div class="field">
@@ -27,10 +28,26 @@
       <%= f.label :生年月日 %>
       <%= f.date_field :birthday, value: Time.now.strftime("%Y-%m-%d") %>
     </div>
+
+    <div class="field">
+      <%= f.label :パスワード %>
+      <%= f.password_field :password %>
+    </div>
+
+    <div class="field">
+      <%= f.label :パスワード確認 %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+
+
+    <div class="field">
+      <%= f.label :ニックネーム %>
+      <%= f.text_field :nickname %>
+    </div>
     
     <div class="field">
       <%= f.label :年齢 %>
-      <%= f.select :age, [["20代", "20代"], ["30代", "30代"],  ["40代", "40代"], ["50代以上", "50代以上"]], :prompt => "選択してください" %>
+      <%= f.select :age, [["20代", "20代"], ["30代", "30代"],  ["40代", "40代"], ["50代以上", "50代以上"]], include_blank: true %>
     </div>
     
     <div class="field">
@@ -43,31 +60,23 @@
       <%= f.radio_button :gender, :女性 %>
       <%= f.label :女性, class: "gender_label" %>
     </div>
+      
+    <div class="radio-inline">
+      <%= f.check_box :hide_gender %>
+      <%= f.label :性別を非表示にする %>
+    </div>
+   
     <div class="field">
       <%= f.label :自己紹介 %>
       <%= f.text_area :content %>
     </div>
+   
     <div class="field">
       <%= f.label :プロフィール写真 %>
       <%= f.file_field :image %>
     </div>
-    <div class="field">
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-    </div>
-    <div class="field">
-      <%= f.label :パスワード %>
-      <%= f.password_field :password %>
-    </div>
-    <div class="field">
-      <%= f.label :パスワード確認 %>
-      <%= f.password_field :password_confirmation %>
-    </div>
-    <div class="field">
-      <%= f.check_box :adviser %>
-      <%= f.label :スタイリストになる %>
-    </div>
+   
     <div class="action">
-    <%= f.submit "更新する" %>
+      <%= f.submit "プロフィールを更新する" %>
     </div>
   <% end %>

@@ -6,9 +6,16 @@
 <%= link_to 'マイページ編集', edit_user_path(current_user.id) %>
 <h1><%= @user.nickname %>さんのページ</h1>
 <%= render 'stats' %>
-<%= @user.age %>
-<%= @user.gender %>
-<%= @user.content %>
+
+<p>
+  <strong>プロフィール画像:</strong>
+  <%= image_tag @user.image.url %>
+</p>
+<h4>年齢:<%= @user.age %></h4>
+<% unless @user.hide_gender? %>
+<h4>性別:<%= @user.gender %></h4>
+<% end %>
+<h4>自己紹介:<%= @user.content %></h4>
 
 
 <% if current_user.id != @user.id %>

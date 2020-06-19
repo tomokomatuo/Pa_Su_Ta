@@ -30,3 +30,8 @@
   <%= f.submit "メッセージを送る" %>
   </div>
 <% end %>
+<% if current_user.adviser? %>
+<%= link_to '一覧画面へ戻る', users_path %>
+<% else %>
+<%= link_to '一覧画面へ戻る', advisers_path %>
+<% end %>
