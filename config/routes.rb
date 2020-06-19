@@ -2,9 +2,13 @@ Rails.application.routes.draw do
   
   root 'tops#index'
   resources :users do
-    resources :comments
     member do
       get :following, :followers
+    end
+    resources :comments do
+      collection do
+        get 'search'  
+      end
     end
   end
   resources :sessions, only: [:new, :create, :destroy]

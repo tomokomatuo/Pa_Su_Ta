@@ -37,9 +37,15 @@ class CommentsController < ApplicationController
       format.js { render :index }
     end
   end
+  
+  def search
+    @comments = Comment.search(params[:search])
+  end
+
+
   private
   def comment_params
-    params.require(:comment).permit(:user_id, :review)
+    params.require(:comment).permit(:user_id, :review, :rate, :search)
   end
   def set_user
     @user = User.find(params[:user_id])
