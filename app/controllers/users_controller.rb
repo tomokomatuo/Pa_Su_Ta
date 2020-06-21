@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :edit, :destroy, :following, :followers]
+  before_action :set_user, only: [:show, :update, :edit, :destroy]
   
   def index
     @q = User.ransack(params[:q])
@@ -42,11 +42,13 @@ class UsersController < ApplicationController
   end
  
   def following
+    @user = User.find(params[:id])
     @users = @user.following
     render 'show_follow'
   end
 
   def followers
+    @user = User.find(params[:id])
     @users = @user.followers
     render 'show_follower'
   end
@@ -59,6 +61,6 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user  = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 end
