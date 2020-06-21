@@ -57,14 +57,14 @@
 |  3   |  email       |   email          |  string　|　true  |       |    ユーザーアドレス              |
 |  ４   |  年齢         |    age           |  string  | true  |       |   ドロップダウンで選ぶ            |      
 |  5   |  住所         |   address        |  string  | true  |       |  ユーザーの居住地               |
-|  6   |  ユーザーicon  |       icon       |  image   |       |       ｜　ユーザーの画像                |
+|  6   |  ユーザーicon  |       icon       |  image   |       |       |　ユーザーの画像                |
 |  7   |  服の写真      | clothes_image    |  image　 |    　　|       | アドバイザースタイリング写真        |
 |  9   |  アドバイザー   |    adviser        | boolean  |       |       | 　ユーザーを区別する             |
 |  6   |  自己紹介　　  |  content          | text    |       |        |  お悩みなどを記載               |
 |  7   |  電話番号     | phone_number      |  string　|       |        |　ユーザーのコンタクト情報         |
-|  8   |  ニックネーム   |  provider         |  string  |       |        |                            |
-|  9   |  誕生日       |    birthday       | date     |       |        |                            |
-|  10  |  性別非表示　  | hide_gender       | boolean  |       |        |                            |
+|  8   |  ニックネーム   |  provider         |  string  |       |        | 画面に表示させる名前          |
+|  9   |  誕生日       |    birthday       | date     |       |        |   非公開                     |
+|  10  |  性別非表示　  | hide_gender       | boolean  |       |        |    デフォルト：フォルス          |
 |  15  |  パスワード     | password_digit    |  integer | true  |        | パスワード認証                 |
 |  16  |  性別   　　　 | gender            |  integer | true  |        |  セレクトボックスで選ぶ          |  
 
