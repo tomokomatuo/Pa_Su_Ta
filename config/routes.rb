@@ -17,6 +17,5 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
-  get '*not_found' => 'application#routing_error'
-  post '*not_found' => 'application#routing_error'
+  get '*path', to: 'application#render_404'
 end
