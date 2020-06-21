@@ -6,3 +6,8 @@ jquery@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
   integrity sha512-XwIBPqcMn57FxfT+Go5pzySnm4KWkT1Tv7gjrpT1srtf8Weynl6R273VJ5GjkRb51IzMp5nbaPjJXMWeju2MKg==
+
+rateyo@^3.0.0-alpha.2:
+  version "3.0.0-alpha.2"
+  resolved "https://registry.yarnpkg.com/rateyo/-/rateyo-3.0.0-alpha.2.tgz#b9ec3e5194198ddf8352e972bf50e601a698f7ee"
+  integrity sha512-2SQnLpo0j1aWa5na28mpPjT73YNpt7Z58W5MqahqTAs0KmPdbjlbrFctDHd2NyaZfBiQoRFpK92ZzOm4NX92SQ==
