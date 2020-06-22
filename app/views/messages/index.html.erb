@@ -31,7 +31,7 @@
   </div>
 <% end %>
 <% if current_user.adviser? %>
-<%= link_to I18n.t('activerecord.views.back_index'), users_path %>
-<% else %>
 <%= link_to I18n.t('activerecord.views.back_index'), advisers_path %>
+<% else %>
+<%= link_to I18n.t('activerecord.views.back_index'), users_path %>
 <% end %>

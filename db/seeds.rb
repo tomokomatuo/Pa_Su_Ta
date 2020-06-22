@@ -33,6 +33,12 @@ followers = users[16..20]
 following.each { |followed| user.follow!(followed) }
 followers.each { |follower| follower.follow!(user) }
 
+user1 = users[11]
+following = users[1..3]
+followers = users[3..10]
+following.each { |followed| user1.follow!(followed) }
+followers.each { |follower| follower.follow!(user1) }
+
 Comment.create!(review: '大変ためになりました。またよろしくお願いします。', user_id: 1, rate: 4.5)
 Comment.create!(review: 'レスポンスも遅かったし、アドバイスもためになりませんでした。もう少し、時間に遅れないようにしてください。', user_id: 1, rate: 1.5)
 Comment.create!(review: '私に似合う服を一生懸命探してくれました。でも、あまり自分で似合っているとは思いません。でも楽しかったです。', user_id: 1, rate: 3.5)
