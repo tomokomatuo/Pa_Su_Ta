@@ -71,6 +71,10 @@
       <%= f.label I18n.t('activerecord.attributes.user.image') %>
       <%= f.file_field :image %>
     </div>
+    <div class="radio-inline">
+      <%= f.check_box :adviser %>
+      <%= f.label :スタイリストになる %>
+    </div>
    
     <div class="action">
       <%= f.submit I18n.t('activerecord.views.edit_profile') %>
