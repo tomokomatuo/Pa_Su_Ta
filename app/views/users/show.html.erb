@@ -7,7 +7,7 @@
 <%= link_to I18n.t('activerecord.views.logout'), session_path(current_user.id), method: :delete %>
 <%= link_to I18n.t('activerecord.views.goodbye'), user_path(current_user.id), data: { confirm: "退会しますか?" }, method: :delete %>
 <h1><%= @user.nickname %>さんのページ</h1>
-<%= render 'stats', user: @user %>
+<%= render 'stats', locals: user: @user %>
 
 <p>
   <strong>プロフィール画像:</strong>
