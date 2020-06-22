@@ -11,9 +11,9 @@
     <% end %>
     <div class="field">
       <%= form.text_area :review, id: "comment_review_#{user.id}" %>
-      <%= form.label :レビュー %>
+      <%= form.label I18n.t('activerecord.views.review') %>
     </div>
     <div class="actions">
-      <%= form.submit %>
+      <%= form.submit I18n.t('activerecord.views.post') %>
     </div>
   <% end %>

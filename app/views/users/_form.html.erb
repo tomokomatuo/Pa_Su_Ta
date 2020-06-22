@@ -1,0 +1,78 @@
+<%= form_with(model: @user, local: true) do |f| %>  
+  
+    <div class="field">
+      <%= f.label I18n.t('activerecord.attributes.user.name') %>
+      <%= f.text_field :name %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+    </div>
+    
+    <div class="field">
+      <%= f.label I18n.t('activerecord.attributes.user.address') %>
+      <%= f.text_field :address %>
+    </div>
+    
+    <div class="field">
+      <%= f.label I18n.t('activerecord.attributes.user.phone_number') %>
+      <%= f.text_field :phone_number %>
+    </div>
+    
+    <div class="field">
+      <%= f.label I18n.t('activerecord.attributes.user.birthday') %>
+      <%= f.date_field :birthday, value: Time.now.strftime("%Y-%m-%d") %>
+    </div>
+
+    <div class="field">
+      <%= f.label I18n.t('activerecord.attributes.user.password') %>
+      <%= f.password_field :password %>
+    </div>
+
+    <div class="field">
+      <%= f.label I18n.t('activerecord.attributes.user.password_confirmation') %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+
+
+    <div class="field">
+      <%= f.label I18n.t('activerecord.attributes.user.nickname') %>
+      <%= f.text_field :nickname %>
+    </div>
+    
+    <div class="field">
+      <%= f.label I18n.t('activerecord.attributes.user.age') %>
+      <%= f.select :age, [["20代", "20代"], ["30代", "30代"],  ["40代", "40代"], ["50代以上", "50代以上"]], include_blank: true %>
+    </div>
+    
+    <div class="field">
+    <span class="gender_field">性別</span><br>
+    <div class="radio-inline">
+      <%= f.radio_button :gender, :男性, checked: "checked" %>
+      <%= f.label :男性, class: "gender_label" %>
+    </div>
+    <div class="radio-inline">
+      <%= f.radio_button :gender, :女性 %>
+      <%= f.label :女性, class: "gender_label" %>
+    </div>
+      
+    <div class="radio-inline">
+      <%= f.check_box :hide_gender %>
+      <%= f.label I18n.t('activerecord.attributes.user.hide_gender') %>
+    </div>
+   
+    <div class="field">
+      <%= f.label I18n.t('activerecord.attributes.user.content') %>
+      <%= f.text_area :content %>
+    </div>
+   
+    <div class="field">
+      <%= f.label I18n.t('activerecord.attributes.user.image') %>
+      <%= f.file_field :image %>
+    </div>
+   
+    <div class="action">
+      <%= f.submit I18n.t('activerecord.views.edit_profile') %>
+    </div>
+  <% end %>

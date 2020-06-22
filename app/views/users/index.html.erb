@@ -1,22 +1,21 @@
-<%= link_to 'マイページ編集', edit_user_path(current_user.id) %>
-<%= link_to "マイページ", user_path(current_user.id) %>
-<%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+<%= link_to I18n.t('activerecord.views.edit_mypage'), edit_user_path(current_user.id) %>
+<%= link_to I18n.t('activerecord.views.mypage'), user_path(current_user.id) %>
+<%= link_to I18n.t('activerecord.views.logout'), session_path(current_user.id), method: :delete %>
 
 <h1>スタイリスト一覧</h1>
 <%= search_form_for @q do |f| %>
-  <%= f.label :content, "検索" %>
+  <%= f.label :content, I18n.t('activerecord.views.search') %>
   <%= f.search_field :content_cont %>
 
-  <%= f.label :年齢 %>
+  <%= f.label I18n.t('activerecord.attributes.user.age') %>
   <%= f.select :age_eq, options_for_select([['指定なし', ''], ['20代','20代'], ['30代','30代'], ['40代','40代'], ['50代以上','50代以上']], :selected => :age) %>
   
-  <%= f.label :性別 %>
+  <%= f.label I18n.t('activerecord.attributes.user.gender') %>
 　<%= f.radio_button :gender_eq, '', {:checked => true} %>指定なし
   <%= f.radio_button :gender_eq, 0 %>男性
   <%= f.radio_button :gender_eq, 1 %>女性
-  <!--ここまで追加-->
-
-  <%= f.submit "検索" %>
+  
+  <%= f.submit I18n.t('activerecord.views.search') %>
 <% end %>
 
 <table>
@@ -38,9 +37,9 @@
     <td><%= user.gender %></td>
     <% end %>
     <td><%= user.content %></td>
-    <td><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
+    <td><%= link_to I18n.t('activerecord.views.message'), conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></td>
     <td><%= render 'follow_form', user: user %></td>
-    <td><%= link_to '詳細を見る', user_path(user.id) %>
+    <td><%= link_to I18n.t('activerecord.views.detail'), user_path(user.id) %>
   </tr>
   <% end %>
 <% end %>

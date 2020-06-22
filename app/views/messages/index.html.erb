@@ -12,7 +12,7 @@
               <i class="right triangle icon"></i>
               <%= message.body %> /
               <% if message.user == current_user %>
-                <%= message.read ? '既読' : '未読' %>
+                <%= message.read ? I18n.t('activerecord.views.kidoku') : I18n.t('activerecord.views.midoku') %>
               <% end %>  
             </div>
           </div>
@@ -27,11 +27,11 @@
   </div>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
   <div>
-  <%= f.submit "メッセージを送る" %>
+  <%= f.submit I18n.t('activerecord.views.message') %>
   </div>
 <% end %>
 <% if current_user.adviser? %>
-<%= link_to '一覧画面へ戻る', users_path %>
+<%= link_to I18n.t('activerecord.views.back_index'), users_path %>
 <% else %>
-<%= link_to '一覧画面へ戻る', advisers_path %>
+<%= link_to I18n.t('activerecord.views.back_index'), advisers_path %>
 <% end %>

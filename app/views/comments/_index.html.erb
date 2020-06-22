@@ -16,11 +16,10 @@
           </script>
         <div class="comment-review" id ="this_comment_<%= comment.id %>"></div>
         <p><%= comment.review %></p>
-        <p><%= comment.user_id %></p>
         
-        <p><%= link_to "レビュー編集", edit_user_comment_path(user, comment), remote: true %></p>
-        <p><%= link_to "レビュー削除", user_comment_path(comment.user_id, comment.id), method: :delete, remote: true,
-                                        data: { confirm: "本当に削除しますか?"} %></p>
+        <p><%= link_to I18n.t('activerecord.views.edit_review'), edit_user_comment_path(user, comment), remote: true %></p>
+        <p><%= link_to I18n.t('activerecord.views.delete_review'), user_comment_path(comment.user_id, comment.id), method: :delete, remote: true,
+                                        data: { confirm: I18n.t('activerecord.views.confirm_delete')} %></p>
       </li>
     <% end %>
   <% end %>

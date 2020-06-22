@@ -1,0 +1,46 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      relationship: フォローフォロワー 
+    attributes:
+      relationship:
+      user:
+        name: 名前
+        email: メールアドレス
+        address: 住所
+        phone_number: 電話番号
+        hide_gender: 性別を非表示にする
+        gender: 性別
+        image: プロフィール写真
+        content: 自己紹介
+        nickname: ニックネーム
+        birthday: 生年月日
+        age: 年齢
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: ログインを記憶
+    views:
+      follow: フォロー
+      cut: つながりを解除
+      mypage: マイページ
+      edit_mypage: マイページ編集
+      logout: ログアウト
+      search: 検索
+      message: メッセージする
+      detail: 詳細
+      review: レビュー
+      post: 投稿する
+      edit_review: レビュー編集
+      delete_review: レビュー削除
+      confirm_delete: 本当に削除しますか？
+      back_index: 一覧へ戻る
+      kidoku: 既読
+      midoku: 未読
+      registration: 新規登録
+      login: ログイン
+      use_app: さっそく使ってみる
+      edit_profile: プロフィールを変更する
+      see_stylists: スタイリスト一覧を見る
+      see_users: 相談者一覧を見る
+      goodbye: 退会
