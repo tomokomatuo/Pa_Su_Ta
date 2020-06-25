@@ -1,9 +1,84 @@
-<% if current_user.adviser? %>
-<%= link_to I18n.t('activerecord.views.see_users'), advisers_path %>
-<% else %>
-<%= link_to I18n.t('activerecord.views.see_stylists'), users_path %>
-<% end %>
-<%= link_to I18n.t('activerecord.views.mypage'), user_path(current_user.id) %>
-<%= link_to I18n.t('activerecord.views.logout'), session_path(current_user.id), method: :delete %>
+<section class="panel panel-default">
+<div class="panel-body">
+<h2 class="border">プロフィール編集</h2>
+<hr>
+</div>
+<%= form_with(model: @user, local: true) do |f| %>  
+  
+    <div class="field">
+      <%= f.label I18n.t('activerecord.attributes.user.name') %>
+      <%= f.text_field :name %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+    </div>
+    
+    <div class="field">
+      <%= f.label I18n.t('activerecord.attributes.user.address') %>
+      <%= f.text_field :address %>
+    </div>
+    
+    <div class="field">
+      <%= f.label I18n.t('activerecord.attributes.user.phone_number') %>
+      <%= f.text_field :phone_number %>
+    </div>
+    
+    <div class="field">
+      <%= f.label I18n.t('activerecord.attributes.user.birthday') %>
+      <%= f.date_field :birthday, value: Time.now.strftime("%Y-%m-%d") %>
+    </div>
 
-<%= render 'form' %>
+    <div class="field">
+      <%= f.label I18n.t('activerecord.attributes.user.password') %>
+      <%= f.password_field :password %>
+    </div>
+
+    <div class="field">
+      <%= f.label I18n.t('activerecord.attributes.user.password_confirmation') %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+
+
+    <div class="field">
+      <%= f.label I18n.t('activerecord.attributes.user.nickname') %>
+      <%= f.text_field :nickname %>
+    </div>
+    
+    <div class="field">
+      <%= f.label I18n.t('activerecord.attributes.user.age') %>
+      <%= f.select :age, [["20代", "20代"], ["30代", "30代"],  ["40代", "40代"], ["50代以上", "50代以上"]], include_blank: true %>
+    </div>
+    
+    <div class="field">
+    <span class="gender_field">性別</span><br>
+    <div class="radio-inline">
+      <%= f.radio_button :gender, :男性, checked: "checked" %>
+      <%= f.label :男性, class: "gender_label" %>
+    </div>
+    <div class="radio-inline">
+      <%= f.radio_button :gender, :女性 %>
+      <%= f.label :女性, class: "gender_label" %>
+    </div>
+      
+    <div class="radio-inline">
+      <%= f.check_box :hide_gender %>
+      <%= f.label I18n.t('activerecord.attributes.user.hide_gender') %>
+    </div>
+   
+    <div class="field">
+      <%= f.label I18n.t('activerecord.attributes.user.content') %>
+      <%= f.text_area :content %>
+    </div>
+   
+    <div class="field">
+      <%= f.label I18n.t('activerecord.attributes.user.image') %>
+      <p class="profile"><%= f.file_field :image %></p>
+    </div>
+   
+    <div class="action">
+      <%= f.submit '更新', class: 'btn btn-success' %>
+    </div>
+  <% end %>
+  </section>

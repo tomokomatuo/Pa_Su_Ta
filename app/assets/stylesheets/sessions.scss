@@ -1,3 +1,37 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#session {
+    background-image: url(clothespins.jpg);
+    height: 100%;
+    width: 100%;
+    background-position: center center;
+  }
+
+.header ul {
+  float: right;
+}
+.signup {
+  margin-right: 50px;
+  line-height: 60px;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+.box11 {
+  padding: 0.5em 1em;
+  margin: 0 auto;
+  font-weight: bold;
+  color: rgba(0,0,0,1);/*文字色*/
+  background: #FFF;
+  border-radius: 10px;/*角の丸み*/
+  opacity: 0.8;
+  width: 20%;
+  text-align: center;
+  margin-top: 100px;
+}
+.box11 p {
+  margin: 0; 
+  padding: 0;
+}

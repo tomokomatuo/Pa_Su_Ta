@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
+  layout 'user'
   before_action :set_user, only: [:show, :update, :edit, :destroy]
+  before_action :ensure_correct_user, only: [:edit, :update]
+  before_action :adviser_user, only: [:index]
   
   def index
     @q = User.ransack(params[:q])
@@ -62,5 +65,17 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+  
+  def ensure_correct_user
+    if current_user.id !=  params[:id].to_i
+      redirect_to user_path(current_user)
+    end
+  end
+
+  def adviser_user
+    if current_user.adviser?
+      redirect_to user_path(current_user)
+    end
   end
 end

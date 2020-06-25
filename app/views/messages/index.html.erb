@@ -5,8 +5,8 @@
   <% @messages.each do |message| %>
     <% if message.body.present? %>
       <div class="item">
-        <div class="content">
-          <div class="header"><strong><%= message.user.name %></strong> <%= message.message_time %></div>
+        <div class="kidoku">
+          <div class="phrase"><strong><%= message.user.nickname %></strong> <%= message.message_time %></div>
           <div class="list">
             <div class="item">
               <i class="right triangle icon"></i>
@@ -21,6 +21,7 @@
     <% end %>
   <% end %>
 </div>
+<section class="message-new">
 <%= form_with(model: [@conversation, @message]) do |f| %>
   <div class="field">
     <%= f.text_area :body, class: "form-control" %>
@@ -30,8 +31,4 @@
   <%= f.submit I18n.t('activerecord.views.message') %>
   </div>
 <% end %>
-<% if current_user.adviser? %>
-<%= link_to I18n.t('activerecord.views.back_index'), advisers_path %>
-<% else %>
-<%= link_to I18n.t('activerecord.views.back_index'), users_path %>
-<% end %>
+</section>

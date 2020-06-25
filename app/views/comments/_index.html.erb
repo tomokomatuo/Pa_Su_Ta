@@ -1,9 +1,11 @@
 <ul>
   <% comments.each do |comment| %>
+    <tr>
     <% if comment.id.present? %>
-      <li>
-      　<div id = "star-rate-<%= comment.id %>"></div>
+      <li class="list-dot">
+      　<td><div id = "star-rate-<%= comment.id %>"></div>
 　　　　   <script>
+          
             $('#star-rate-<%= comment.id %>').raty({
             size: 36,
             starOff:  '<%= asset_path('star-off.png') %>',
@@ -12,16 +14,19 @@
             half: true,
             readOnly: true,
             score: <%= comment.rate %>
-          })
-          </script>
+            })
+          </script></td>
         
         <div class="comment-review" id ="this_comment_<%= comment.id %>"></div>
-        <p><%= comment.review %></p>
         
-        <p><%= link_to I18n.t('activerecord.views.edit_review'), edit_user_comment_path(user, comment), remote: true %></p>
-        <p><%= link_to I18n.t('activerecord.views.delete_review'), user_comment_path(comment.user_id, comment.id), method: :delete, remote: true,
-                                        data: { confirm: I18n.t('activerecord.views.confirm_delete')} %></p>
+        <td><%= comment.review %></td>
+        
+        <td><%= link_to I18n.t('activerecord.views.edit_review'), edit_user_comment_path(user, comment), remote: true, class: "comment-color" %></td>
+        <td><%= link_to I18n.t('activerecord.views.delete_review'), user_comment_path(comment.user_id, comment.id), method: :delete, remote: true,
+                                        data: { confirm: I18n.t('activerecord.views.confirm_delete')}, class: "comment-color" %></td>
+       
       </li>
+      </tr>
     <% end %>
   <% end %>
 </ul>

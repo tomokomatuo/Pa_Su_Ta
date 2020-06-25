@@ -1,6 +1,6 @@
 require 'rails_helper'
-RSpec.describe 'タスク管理機能', type: :system do
-  describe 'タスク一覧画面' do
+RSpec.describe 'ユーザー・スタイリスト管理機能', type: :system do
+  describe 'ユーザー一覧画面' do
     context 'タスクを作成した場合' do
       it '作成済みのタスクが表示される' do
         task = FactoryBot.create(:task, title: 'task')

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PaSuTa</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body id="user">
+    <div class="container">
+      <header class="header">
+        <p class="header-logo clear-fix">PASUTA</p>
+        <ul class="header-list clear-fix">
+          <% if logged_in? %>
+            <% if current_user.adviser? %>
+              <li><%= link_to I18n.t('activerecord.views.see_users'), advisers_path, class: "list" %></li>
+            <% else %>
+              <li><%= link_to I18n.t('activerecord.views.see_stylists'), users_path, class: "list" %></li>
+            <% end %>
+              <li><%= link_to I18n.t('activerecord.views.mypage'), user_path(current_user.id), class: "list" %></li>
+              <li><%= link_to I18n.t('activerecord.views.edit_mypage'), edit_user_path(current_user.id), class: "list" %></li>
+              <li><%= link_to I18n.t('activerecord.views.logout'), session_path(current_user.id), method: :delete, class: "list" %></li>
+              <li><%= link_to I18n.t('activerecord.views.goodbye'), user_path(current_user.id), data: { confirm: "退会しますか?" }, method: :delete, class: "list" %></li>
+            <% end %>
+        </ul>
+      </header>
+ 　　<% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+      <%= yield %>
+      <footer class="footer">
+        <p class="copyright">Copyright © 2020 Pasuta Corporation. All Rights Reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,3 +1,16 @@
-<h1>PASUTA</h1>
-<p>服装でお悩みのあなたへ、パーソナルスタイリストがアドバイスします。</p>
- <%= link_to I18n.t('activerecord.views.use_app'), new_user_path %>
+<div class="introduction">
+<p class="title">PASUTA</p>
+<p class="font">年齢に合った着こなしがわからない？</br>スタイルや服のセンスに自信がない？</p>
+<p class="font">服装でお悩みのあなたへ、パーソナルスタイリストがアドバイスします。</p>
+<div class="grid-container">
+  <div class="button-border" >
+    <div class="press-me">
+      <h3>Press Me!</h3>
+    </div>
+    <div class="button-body">
+<%= link_to '使ってみる', new_user_path, class: "registration" %>
+</div>
+</div>
+  </div>
+
+</div>

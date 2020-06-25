@@ -10,13 +10,22 @@
    
   </head>
 
-  <body>
-  
-  
+  <body id="session">
+  <div class="container">
+  <header class="header">
+  <p class="header-logo clear-fix">PASUTA</p>
+  <ul>
+  <li class="signup"><%= link_to 'Sign up', new_user_path, class: "list" %></li>
+  </ul>
+  </header>
  　　<% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
     
     <%= yield %>
+    <footer class="footer">
+    <p class="copyright">Copyright © 2020 Pasuta Corporation. All Rights Reserved.</p>
+     </footer>
+     </div>
   </body>
 </html>

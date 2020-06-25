@@ -1,3 +1,125 @@
 // Place all the styles related to the tops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#top {
+  background-image: url(meny.jpg);
+  background-size: cover;
+  height: 800px;
+  background-position: center;
+}
+.introduction {
+  text-align: center;
+  top: 100px;
+}
+
+@keyframes typing { from { width: 0; } }
+@keyframes caret { 50% { border-color: transparent; } }
+
+.title {
+font-family: monospace; 
+width: 11ch;
+border-right: .08em solid;
+overflow: hidden;
+font-size: 8em;
+white-space: nowrap;
+animation: typing 5s steps(11, end), caret .5s step-end infinite;
+color: rgb(220, 193, 43);
+}
+.font {
+  font-family: Hiragino Maru Gothic ProN;
+  font-size: 25px
+}
+
+body {
+  color: white;
+}
+
+.press-me {
+  position: absolute;
+  color: #F2F2FC;
+  transform: scale(0.9);
+  opacity: 0;
+  transition: 0.1s; 
+}
+
+h3 {
+  position: absolute;
+  width: 100px;
+  transform: rotate(-40deg);
+  top: -20px;
+  left: -20px;
+  transition: 0.3s; 
+}
+
+.grid-container {
+  max-width: 940px;
+  margin: 100px auto;
+  display: grid;
+  grid-template-columns: auto;
+  grid-gap: 10px;
+}
+
+.button-border {
+  background-color: rgb(225, 111, 23);
+  margin: auto;
+  padding: 8px;
+  border-radius: 65px;
+  transition: 0.3s; 
+  
+}
+
+.button-body{
+  background-color: rgb(215, 149, 35);
+  width: 230px;
+  height: 75px;
+  border-radius: 60px;
+  padding: 20px 40px 20px 40px;
+  border: #fff;
+  transition: 0.3s; 
+}
+
+.registration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #F2F2FC;
+  font-size: 30px;
+  font-weight: 900;
+  transition: 0.3s; 
+  text-decoration: none;
+}
+
+/* Hover Effect */
+
+.button-border:hover h3 {
+  top: -40px;
+  left: -50px;
+  transition: 0.3s; 
+}
+
+.button-border:hover .press-me {
+  transform: scale(1);
+  opacity: 100;
+  transition: 0.3s ease-in 0.05s; 
+  animation: pressme 2s ease-in-out infinite;
+}
+
+.button-border:hover .registration {
+  transform: scale(1.05);
+}
+
+.button-border:hover {
+  transform: scale(1.1);
+  padding: 6px;
+}
+
+/**** Keyframe Animations ****/
+
+@keyframes pressme {
+  0% {transform: scale(1);}
+  25% {transform: scale(1.05);}
+  50% {transform: scale(1);}
+  75% {transform: scale(1.05);}
+  100% {transform: scale(1);}  
+}
+

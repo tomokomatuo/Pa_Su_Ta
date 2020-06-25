@@ -1,3 +1,153 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#user {
+    background-image: url(store.jpg);
+    height: 100%;
+    background-position: top center;
+    // backdrop-filter: blur(4px);
+  }
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+  }
+body {
+  height: 100%;
+  }
+.container {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  min-height: 100%;
+  padding: 0;
+  padding-bottom: 60px;
+}
+.header {
+  height: 60px;
+  width: 100%;
+  background-color: rgb(255, 140, 0);
+}
+
+.footer {
+  height: 60px;
+  width: 100%;
+  background-color: rgb(255, 140, 0);
+  position: absolute;
+  bottom: 0;
+  display: table;
+}
+
+.copyright {
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  color: blue;
+}
+.header-logo {
+  font-size: 45px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  margin-left: 20px;
+  float:left;
+  color: blue;
+}
+
+.header-list {
+  float: right;
+  line-height: 60px;
+}
+.header li {
+  list-style: none;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.header li .list {
+  color: blue;
+}
+.content-new {
+  margin-bottom: 100px
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.following {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+}
+// .registration {
+//   max-width:400px;
+//     border: solid 1px rgb(239, 255, 62);
+//     border-radius:10px 10px 0px 0px;
+// }
+// .registration-header {
+//   background: rgba(198, 197, 197, 0.988);
+//     border-radius:10px 10px 0px 0px;
+//     padding: 15px;
+//     font-size: 25px;
+// }
+.panel {
+  color : rgba(0,0,0,1);
+  width: 30%;
+  text-align: center;
+  margin-left: 35%;
+  border-radius: 30px 30px;
+  opacity: 0.8;
+}
+.label {
+  margin-left: 10px;
+}
+.profile {
+  margin-left: 100px;
+}
+.stylist-check {
+  color: rgba(255,0,0,1);
+}
+.field {
+  margin-bottom: 10px;
+}
+.border {
+  opacity: 1.0;
+}
+.label {
+  color: rgba(255,255,255,1);
+}
+
+.box10 {
+  padding: 0.5em 1em;
+  margin: 0 auto;
+  color: rgb(0, 74, 212);
+  background: #fff;/*背景色*/
+  border-top: solid 6px rgb(0, 74, 212);
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);/*影*/
+  width: 45%;
+  height: 50%;
+  margin-bottom: 15px;
+}
+.introduction {
+  margin: 0; 
+  padding: 0;
+}
+
+.flex_stats {
+  display: flex;
+}
+
+.stats{
+  margin-left: 50px;
+  margin-top: 40px;
+}
+
+.nickname {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 20px;
+}
+
+.gender {
+  margin-left: 0;
+}

@@ -1,28 +1,28 @@
-<% if current_user.adviser? %>
-<%= link_to I18n.t('activerecord.views.see_users'), advisers_path %>
-<% else %>
-<%= link_to I18n.t('activerecord.views.see_stylists'), users_path %>
+<section class="box10">
+<div class="introduction">
+  <div class="flex_stats">
+    <div class="stats nickname"><%= @user.nickname %>さん</div>
+    <div class="stats age"><%= @user.age %></div>
+<% unless @user.hide_gender? %>
+<div class="stats gender"><%= @user.gender %></div>
 <% end %>
-<%= link_to I18n.t('activerecord.views.edit_mypage'), edit_user_path(current_user.id) %>
-<%= link_to I18n.t('activerecord.views.logout'), session_path(current_user.id), method: :delete %>
-<%= link_to I18n.t('activerecord.views.goodbye'), user_path(current_user.id), data: { confirm: "退会しますか?" }, method: :delete %>
-<h1><%= @user.nickname %>さんのページ</h1>
-<%= render 'stats', user: @user %>
-
+  <% if current_user.id == @user.id %>
+    <%= render 'stats', user: @user, class: "stats follow_count" %>
+  <% else %>
+    <div class="stats follow_count">フォロワー<%= @user.followers.count %>名</div>
+  <% end %>
+  </div>
+<hr>
 <p>
-  <strong>プロフィール画像:</strong>
   <%= image_tag @user.image.url %>
 </p>
-<h4>年齢:<%= @user.age %></h4>
-<% unless @user.hide_gender? %>
-<h4>性別:<%= @user.gender %></h4>
-<% end %>
-<h4>自己紹介:<%= @user.content %></h4>
-
-
-<% if current_user.id != @user.id %>
+<h4><%= @user.content %></h4>
+<hr>
 <div id="comments_area">
     <%= render partial: 'comments/index', locals: { comments: @comments, user: @user } %>
   </div>
+</div>
+</section>
+  <% if current_user.id != @user.id %>
   <%= render partial: 'comments/form', locals: { comment: @comment, user: @user } %>
 <% end %>

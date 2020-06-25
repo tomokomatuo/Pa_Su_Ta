@@ -1,13 +1,17 @@
-<%= link_to I18n.t('activerecord.views.registration'), new_user_path %>
-<h1>ログイン</h1>
+<section class="box11">
+<p>
+<h2>Log in</h2>
+<hr>
 <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-  <div classs="file_filed">
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-  </div>
-  <div classs="file_filed">
-    <%= f.label :password %>
+    <%= f.label :email %><br>
+    <%= f.email_field :email %><br>
+
+    <div class="field"><%= f.label :password %><br>
     <%= f.password_field :password %>
-  </div>
-  <%= f.submit I18n.t('activerecord.views.login') %>
+    </div>
+    <div class="filed">
+    <%= f.submit 'Log in', class: 'btn btn-primary' %>
+    </div>
 <% end %>
+</p>
+</section>

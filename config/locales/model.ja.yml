@@ -31,8 +31,8 @@ ja:
       detail: 詳細
       review: レビュー
       post: 投稿する
-      edit_review: レビュー編集
-      delete_review: レビュー削除
+      edit_review: 編集
+      delete_review: 削除
       confirm_delete: 本当に削除しますか？
       back_index: 一覧へ戻る
       kidoku: 既読
@@ -42,5 +42,5 @@ ja:
       use_app: さっそく使ってみる
       edit_profile: プロフィールを変更する
       see_stylists: スタイリスト一覧を見る
-      see_users: 相談者一覧を見る
+      see_users: ユーザー一覧を見る
       goodbye: 退会

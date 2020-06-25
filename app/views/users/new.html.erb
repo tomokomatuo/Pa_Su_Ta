@@ -1,4 +1,9 @@
-<h1>新規会員登録</h1>
+<section class="panel panel-default">
+  <div class="panel-body">
+  <h2 class="border">Sign Up</h2>
+  <hr>
+  </div>
+
 <% if @user.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
@@ -9,5 +14,101 @@
     </ul>
   </div>
 <% end %>
-<%= render 'form' %>
+<%= form_with(model: @user, local: true) do |f| %>  
+  
+  <div class="field">
+  <h6><%= f.label I18n.t('activerecord.attributes.user.name') %><span class="label label-danger">必須</span></h6>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+  <h6><%= f.label :email %><span class="label label-danger">必須</span></h6>
+    <%= f.email_field :email %>
+  </div>
+  
+  <div class="field">
+  <h6><%= f.label I18n.t('activerecord.attributes.user.address') %><span class="label label-danger">必須</span></h6>
+    <%= f.text_field :address %>
+  </div>
+  
+  <div class="field">
+  <h6><%= f.label I18n.t('activerecord.attributes.user.phone_number') %><span class="label label-danger">必須</span></h6>
+    <%= f.text_field :phone_number %>
+  </div>
+  
+  <div class="field">
+  <h6><%= f.label I18n.t('activerecord.attributes.user.birthday') %><span class="label label-danger">必須</span></h6>
+    <%= f.date_field :birthday, value: Time.now.strftime("%Y-%m-%d") %>
+  </div>
 
+  <div class="field">
+  <h6><%= f.label I18n.t('activerecord.attributes.user.password') %><span class="label label-danger">必須</span></h6>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field">
+  <h6><%= f.label I18n.t('activerecord.attributes.user.password_confirmation') %><span class="label label-danger">必須</span></h6>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+
+  <div class="field">
+  <h6><%= f.label I18n.t('activerecord.attributes.user.nickname') %><span class="label label-danger">必須</span></h6>
+    <%= f.text_field :nickname %>
+  </div>
+  
+  <div class="field">
+    <%= f.label I18n.t('activerecord.attributes.user.age') %></br>
+    <%= f.select :age, [["20代", "20代"], ["30代", "30代"],  ["40代", "40代"], ["50代以上", "50代以上"]], include_blank: true %>
+  </div>
+  
+  <div class="field">
+  <%= f.label :性別 %><br>
+  <div class="radio-inline">
+    <%= f.radio_button :gender, :男性, checked: "checked" %>
+    <%= f.label :男性, class: "gender_label" %>
+  </div>
+  <div class="radio-inline">
+    <%= f.radio_button :gender, :女性 %>
+    <%= f.label :女性, class: "gender_label" %>
+  </div>
+    
+  <div class="radio-inline">
+    <%= f.check_box :hide_gender %>
+    <%= f.label I18n.t('activerecord.attributes.user.hide_gender') %>
+  </div>
+ 
+  <div class="field">
+    <%= f.label I18n.t('activerecord.attributes.user.content') %>
+    <%= f.text_area :content %>
+  </div>
+ 
+  <div class="field">
+    <%= f.label I18n.t('activerecord.attributes.user.image') %>
+    <p class="profile"><%= f.file_field :image %></p>
+  </div>
+  <div class="radio-inline">
+    <%= f.check_box :adviser %>
+    <%= f.label :スタイリストになる, class: "stylist-check" %>
+  </div>
+ 
+  <div class="action field">
+    <%= f.submit '登録', class: 'btn btn-success' %>
+  </div>
+<% end %>
+<div class="action field">
+<%= form_for(:session, url: sessions_path) do |f| %>
+  <%= f.hidden_field :email, value: 'kentar11@gmail.com' %>
+  <%= f.hidden_field :password, value: 'password' %>
+  <%= f.submit 'テストスタイリストログイン', class: 'btn btn-primary' %>
+<% end %>
+</div>
+<div class="action field">
+<%= form_for(:session, url: sessions_path) do |f| %>
+  <%= f.hidden_field :email, value: 'asak11@gmail.com' %>
+  <%= f.hidden_field :password, value: 'password' %>
+  <%= f.submit 'テストユーザーログイン', class: 'btn btn-danger' %>
+<% end %>
+</div>
+
+</section>
