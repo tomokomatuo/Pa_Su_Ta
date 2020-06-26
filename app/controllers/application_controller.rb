@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  # protect_from_forgery with: :exception
   include SessionsHelper
   before_action :limited_use, only: [:new]
   before_action :authenticate_user, only: [:edit, :update, :index, :show, :follower, :following]
