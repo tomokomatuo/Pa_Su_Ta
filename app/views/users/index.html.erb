@@ -22,7 +22,7 @@
   　<% if user.image? %>
     <td><%= image_tag user.image.url %></td>
     <% else %>
-    　<td><%= image_tag "/assets/default.png", :size => '200x130' %></td>
+    　<td><%= image_tag "/default.png", :size => '200x130' %></td>
 　　<% end %>
     <td><%= user.nickname %></td>
     <td><%= user.age %></td>
