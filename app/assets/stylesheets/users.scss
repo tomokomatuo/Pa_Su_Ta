@@ -151,3 +151,133 @@ body {
 .gender {
   margin-left: 0;
 }
+.wrapper {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.box_line {
+  background: #fff;
+  border-radius: 240px 15px 100px 15px / 15px 200px 15px 185px;
+  padding: 4%;
+  width: 30%;
+  margin: 10px;
+  color: black;
+  text-align: center;
+}
+.box1 {
+  border: 2px solid #333;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.follow_btn {
+  margin-right: 20px;
+}
+
+.box8 {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #232323;
+  background: #fff8e8;
+  border-left: solid 10px #ffc06e;
+}
+.box8 p {
+  margin: 0; 
+  padding: 0;
+}
+
+.icon {
+  width: 30%;
+}
+
+.heading02 {
+  font-weight:bold;
+  position: relative;
+  padding: 10px;
+  background: #b8b8b8;
+  margin-right:20px;
+}
+.heading02:before {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 10px 0;
+  border-color: transparent;
+  border-right-color: #a6a6a6;
+}
+.heading02:after {
+  content: " ";
+  position: absolute;
+  top: 0px;
+  left: 100%;
+  width: 0;
+  height: 0;
+  border-width: 22px 10px;
+  border-style: solid;
+  border-color: #b8b8b8;
+  border-right-color: transparent;
+}
+
+.index_css {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #232323;
+  background: #fff8e8;
+  border-left: solid 10px #ffc06e;
+  margin: 30px 50px;
+}
+
+.flex_shokai {
+  display: flex;
+}
+
+.shokai {
+  word-break: break-all;
+}
+.flex_namae {
+  display: flex;
+  flex-direction: column;
+}
+
+.heading03 {
+  font-weight:bold;
+  position: relative;
+  background: #b8b8b8;
+  padding: 10px;
+}
+.heading03:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 25px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top: 10px solid #b8b8b8;
+}
+.box18{
+  margin:2em 0;
+  position: relative;
+  padding: 0.25em 1em;
+  border: solid 2px #ffcb8a;
+  border-radius: 3px 0 3px 0;
+}
+.box4{
+  padding: 8px 19px;
+  margin: 0 auto;
+  color: #2c2c2f;
+  background: #cde4ff;
+  border-top: solid 5px #5989cf;
+  border-bottom: solid 5px #5989cf;
+  width: 20%;
+  height: 50%;
+  margin-bottom: 10px;
+}
+.box4 p {
+  margin: 0; 
+  padding: 0;
+}

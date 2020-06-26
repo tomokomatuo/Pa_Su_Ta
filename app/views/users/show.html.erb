@@ -14,7 +14,11 @@
   </div>
 <hr>
 <p>
+<% if @user.image? %>
   <%= image_tag @user.image.url %>
+  <% else %>
+  <image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>
+<% end %>
 </p>
 <h4><%= @user.content %></h4>
 <hr>
@@ -23,6 +27,9 @@
   </div>
 </div>
 </section>
-  <% if current_user.id != @user.id %>
-  <%= render partial: 'comments/form', locals: { comment: @comment, user: @user } %>
+<% if current_user.id != @user.id %>
+<section class="box4">
+<h4>レビュー投稿</h4>
+  <p><%= render partial: 'comments/form', locals: { comment: @comment, user: @user } %></p>
+</section>
 <% end %>

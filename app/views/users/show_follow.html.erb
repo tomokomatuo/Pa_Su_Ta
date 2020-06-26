@@ -1,4 +1,7 @@
-<div class="following">
+<section class="wrapper">
+  <div class="box1 box_line">
+<h2>フォロー中の人一覧</h2>
+<hr>
 <table>
 <% @user.following.each do |user| %>
   
@@ -13,3 +16,4 @@
 <% end %>
 </table>
 </div>
+</section>

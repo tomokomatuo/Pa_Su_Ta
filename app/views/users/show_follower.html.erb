@@ -1,12 +1,16 @@
-<div class="following">
+<section class="wrapper">
+  <div class="box1 box_line">
+<h2>フォロワー一覧</h2>
+<hr>
 <% @user.followers.each do |user| %>
     <table>
     <tr>
-      <td><%= user.nickname %></td>
+      <p class="follow_btn"><td><%= user.nickname %></td></p>
       <td><%= render 'follow_form', user: user %></td>
-      <td><%= link_to I18n.t('activerecord.views.detail'), user_path(user) %></td>
+      <td><%= link_to I18n.t('activerecord.views.detail'), user_path(user), class: "detail_link" %></td>
     </tr>
     
     </table>
 <% end %>
 </div>
+</section>

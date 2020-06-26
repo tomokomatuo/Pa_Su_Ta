@@ -16,6 +16,29 @@ RSpec.describe User, type: :model do
         user.valid?
         expect(user.errors[:name]).to include("を入力してください")
       end
-  it "is invalid with a duplicate title"
-  it "is invalid with title is 101 or more characters"
+      it "is invalid without an address" do
+        user = User.new(email: '1@gmail.com', address: nil)
+        user.valid?
+        expect(user.errors[:address]).to include("を入力してください")
+      end
+      it "is invalid without a phone_number" do
+        user = User.new(email: '1@gmail.com', phone_number: nil)
+        user.valid?
+        expect(user.errors[:address]).to include("を入力してください")
+      end
+      it "is invalid without a birthday" do
+        user = User.new(email: '1@gmail.com', birthday: nil)
+        user.valid?
+        expect(user.errors[:address]).to include("を入力してください")
+      end
+      it "is invalid without a password" do
+        user = User.new(email: '1@gmail.com', password: nil)
+        user.valid?
+        expect(user.errors[:address]).to include("を入力してください")
+      end
+      it "is invalid with password is 5 or less characters" do
+        user = User.new(email: '1@gmail.com', password: '00000')
+        user.valid?
+        expect(user.errors[:password]).to include("は6文字以上で入力してください")
+      end
 end

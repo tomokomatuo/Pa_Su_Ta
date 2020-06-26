@@ -1,4 +1,4 @@
-<h1>スタイリスト一覧</h1>
+<h1 class="heading02">スタイリスト一覧</h1>
 <%= search_form_for @q do |f| %>
   <%= f.label :content, I18n.t('activerecord.views.search') %>
   <%= f.search_field :content_cont %>
@@ -14,19 +14,16 @@
   <%= f.submit I18n.t('activerecord.views.search') %>
 <% end %>
 
-<table>
-<tr>
-  <th>プロフィール写真<th>
-  <th>ニックネーム<th>
-  <th>年齢<th>
-  <th>性別<th>
-  <th>自己紹介<th>
-</tr>
 
+<table>
 <% @users.each do |user| %>
   <% if user.adviser? %>
   <tr>
+  　<% if user.image? %>
     <td><%= image_tag user.image.url %></td>
+    <% else %>
+    　<td><%= image_tag "/assets/default.png", :size => '200x130' %></td>
+　　<% end %>
     <td><%= user.nickname %></td>
     <td><%= user.age %></td>
     <% unless user.hide_gender? %>
@@ -38,7 +35,9 @@
     <td><%= link_to I18n.t('activerecord.views.detail'), user_path(user.id) %>
   </tr>
   <% end %>
+ 
 <% end %>
 
-</table>
+
+
       

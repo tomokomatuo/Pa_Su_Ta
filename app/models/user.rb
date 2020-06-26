@@ -7,11 +7,9 @@ class User < ApplicationRecord
   validates :address, presence: true
   validates :phone_number, presence: true, format: { with: /\A\d{10}$|^\d{11}\z/ }
   validates :birthday, presence: true
-  validates :gender, presence: true
+  validates :password, presence: true, length: { minimum: 6 }
   
   has_secure_password
-  
-  validates :password, presence: true, length: { minimum: 6 }
   
   enum gender: { 男性: 0, 女性: 1}
   

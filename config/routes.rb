@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
-  get '*path', to: 'application#render_404'
+  # get '*path', to: 'application#render_404'
 end
