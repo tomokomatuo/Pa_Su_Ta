@@ -1,4 +1,5 @@
 <h1 class="heading02">スタイリスト一覧</h1>
+<div class="kensaku clearfix">
 <%= search_form_for @q do |f| %>
   <%= f.label :content, I18n.t('activerecord.views.search') %>
   <%= f.search_field :content_cont %>
@@ -13,29 +14,28 @@
   
   <%= f.submit I18n.t('activerecord.views.search') %>
 <% end %>
-
+</div>
 
 <table>
 <% @users.each do |user| %>
   <% if user.adviser? %>
-  <tr>
+  <div class="index_css flex_shokai">
   　<% if user.image? %>
-    <td><%= image_tag user.image.url %></td>
+    <%= image_tag user.image.url %>
     <% else %>
-    　<td><%= image_tag "/default.png", :size => '200x130' %></td>
+    <%= image_tag "/default.png", :size => '200x130' %>
 　　<% end %>
-    <td><%= user.nickname %></td>
-    <td><%= user.age %></td>
+    <%= user.nickname %>
+    <%= user.age %>
     <% unless user.hide_gender? %>
-    <td><%= user.gender %></td>
+    <%= user.gender %>
     <% end %>
-    <td><%= user.content %></td>
-    <td><%= link_to I18n.t('activerecord.views.message'), conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post, id: "send_message" %></td>
-    <td><%= render 'follow_form', user: user %></td>
-    <td><%= link_to I18n.t('activerecord.views.detail'), user_path(user.id) %>
-  </tr>
+    <%= user.content %>
+    <%= link_to I18n.t('activerecord.views.message'), conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post, id: "send_message" %></td>
+    <%= render 'follow_form', user: user %></td>
+    <%= link_to I18n.t('activerecord.views.detail'), user_path(user.id) %>
+  </div>
   <% end %>
- 
 <% end %>
 
 

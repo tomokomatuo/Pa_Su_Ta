@@ -196,6 +196,7 @@ body {
   padding: 10px;
   background: #b8b8b8;
   margin-right:20px;
+  width: 25%;
 }
 .heading02:before {
   content: " ";
@@ -280,4 +281,23 @@ body {
 .box4 p {
   margin: 0; 
   padding: 0;
+}
+.kensaku {
+  margin-left: 55%;
+  font-weight:bold;
+  position: relative;
+  background: #b8b8b8;
+  padding: 10px;
+  color: black;
+}
+
+.kensaku:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 25px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top: 10px solid #b8b8b8;
 }

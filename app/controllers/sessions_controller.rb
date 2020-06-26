@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   layout 'session'
   def new
-    
   end
   
   def create
@@ -14,13 +13,6 @@ class SessionsController < ApplicationController
       render :new
     end
   end
-  
-  def show
-  end
-
-  def edit
-  end
-
 
 def destroy
     session.delete(:user_id)

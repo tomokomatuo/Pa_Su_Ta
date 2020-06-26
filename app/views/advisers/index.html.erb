@@ -1,6 +1,5 @@
 <h1 class="heading02">ユーザー一覧</h1>
 <div class="kensaku clearfix">
-
 <%= search_form_for @q do |f| %>
   
   <%= f.label :content, I18n.t('activerecord.views.search') %>
@@ -20,12 +19,11 @@
 <% @users.each do |user| %>
   <% unless user.adviser? %>
   <div class="index_css flex_shokai">
-  <tr>
   <p class="shokai">
   <% if user.image? %>
-  <td><%= image_tag user.image.url, class: "image_shape" %></td>
+  <%= image_tag user.image.url, class: "image_shape" %>
   <% else %>
-  　<td><%= image_tag "/default.png", :size => '200x130', class: "image_shape" %></td>
+  <%= image_tag "/default.png", :size => '200x130', class: "image_shape" %>
 　　<% end %>
   </p>
     <p class="shokai flex_namae">
@@ -39,9 +37,8 @@
     <p class="shokai">
     <%= link_to I18n.t('activerecord.views.message'), conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %>
     <%= render 'follow_form', user: user %><br
-    <td><%= link_to I18n.t('activerecord.views.detail'), user_path(user.id) %>
+    <%= link_to I18n.t('activerecord.views.detail'), user_path(user.id) %>
     </p>
-  </tr>
   </div>
   <% end %>
 <% end %>

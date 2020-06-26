@@ -3,9 +3,8 @@
 <% end %>
 <div class="ui segment">
   <% @messages.each do |message| %>
-   <% if message.body.present? %>
-     <p class="kaiwa balloon3-left">
-      <div class="item">
+    <% if message.body.present? %>
+    <div class="item">
         <div class="kidoku">
           <div class="phrase"><strong><%= message.user.nickname %></strong> <%= message.message_time %></div>
           <div class="list">
@@ -19,7 +18,6 @@
           </div>
         </div>
       </div>
-      </p>
     <% end %>
   <% end %>
 </div>
