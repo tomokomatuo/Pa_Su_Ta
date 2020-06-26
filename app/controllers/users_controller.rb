@@ -74,7 +74,7 @@ class UsersController < ApplicationController
   end
 
   def adviser_user
-    if current_user.adviser?
+    if current_user.adviser? 
       redirect_to user_path(current_user)
     end
   end
