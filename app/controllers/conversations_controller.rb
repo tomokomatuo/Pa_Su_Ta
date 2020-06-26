@@ -1,5 +1,4 @@
 class ConversationsController < ApplicationController
-  layout 'message'
   def index
     @conversations = Conversation.all
   end

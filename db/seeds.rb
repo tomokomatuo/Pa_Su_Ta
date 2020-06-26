@@ -29,7 +29,7 @@ User.create!(nickname: 'あさこ', image:File.open("./db/fixtures/daisies.jpg")
 users = User.all
 user  = users.first
 following = users[17..20]
-followers = users[16..20]
+followers = users[17..20]
 following.each { |followed| user.follow!(followed) }
 followers.each { |follower| follower.follow!(user) }
 
