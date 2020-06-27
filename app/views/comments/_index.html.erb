@@ -3,19 +3,19 @@
     <tr>
     <% if comment.id.present? %>
       <li class="list-dot">
-#       　<div id = "star-rate-<%= comment.id %>"></div>
-# 　　　　   <script>
+      　<div id = "star-rate-<%= comment.id %>"></div>
+　　　　   <script>
           
-#             $('#star-rate-<%= comment.id %>').raty({
-#             size: 36,
-#             starOff:  '<%= asset_path('star-off.png') %>',
-#             starOn : '<%= asset_path('star-on.png') %>',
-#             starHalf: '<%= asset_path('star-half.png') %>',
-#             half: true,
-#             readOnly: true,
-#             score: <%= comment.rate %>
-#             })
-#           </script>
+            $('#star-rate-<%= comment.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: <%= comment.rate %>
+            })
+          </script>
         
         <div class="comment-review" id ="this_comment_<%= comment.id %>"></div>
         
