@@ -7,7 +7,8 @@ class User < ApplicationRecord
   validates :address, presence: true
   validates :phone_number, presence: true, format: { with: /\A\d{10}$|^\d{11}\z/ }
   validates :birthday, presence: true
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, on: :create
+  validates :password, length: {minimum: 6}, on: :update, allow_blank: true
   
   has_secure_password
   

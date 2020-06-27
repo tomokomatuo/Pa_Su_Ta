@@ -301,3 +301,37 @@ body {
   border: 10px solid transparent;
   border-top: 10px solid #b8b8b8;
 }
+
+.box15 {
+  padding: 0.2em 0.5em;
+  margin: 2em 40%;
+  color: #565656;
+  background: #ffeaea;
+  box-shadow: 0px 0px 0px 10px #ffeaea;
+  border: dashed 2px #ffc3c3;
+  border-radius: 8px;
+  width: 25%;
+  text-align: center;
+}
+.box25{
+  position: relative;
+  background: #fff0cd;
+  box-shadow: 0px 0px 0px 5px #fff0cd;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  color: #454545;
+  width:25%;
+  margin: 2em 40%;
+  text-align: center;
+  height: 39%
+}
+.box25:after{
+  position: absolute;
+  content: '';
+  right: -7px;
+  top: -7px;
+  border-width: 0 15px 15px 0;
+  border-style: solid;
+  border-color: #ffdb88 #fff #ffdb88;
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}

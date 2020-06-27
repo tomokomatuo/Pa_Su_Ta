@@ -11,13 +11,16 @@
   <% else %>
     <div class="stats follow_count">フォロワー<%= @user.followers.count %>名</div>
   <% end %>
+  <% if current_user.id == @user.id %>
+  <%= link_to I18n.t('activerecord.views.edit_mypage'), edit_user_path(current_user.id), class: "stats" %>
+  <% end %>
   </div>
-<hr>
+  <hr>
 <p>
 <% if @user.image? %>
   <%= image_tag @user.image.url %>
   <% else %>
-  <image src="/assets/default.png" class="icon" alt="ユーザーアイコン" %>
+  <image src=".db/fixtures/default.png" class="icon" alt="ユーザーアイコン" %>
 <% end %>
 </p>
 <h4><%= @user.content %></h4>

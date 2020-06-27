@@ -1,10 +1,7 @@
-<section class="panel panel-default">
-<div class="panel-body">
+<section class="box25">
 <h2 class="border">プロフィール編集</h2>
 <hr>
-</div>
 <%= form_with(model: @user, local: true) do |f| %>  
-  
     <div class="field">
       <%= f.label I18n.t('activerecord.attributes.user.name') %>
       <%= f.text_field :name %>
@@ -27,19 +24,8 @@
     
     <div class="field">
       <%= f.label I18n.t('activerecord.attributes.user.birthday') %>
-      <%= f.date_field :birthday, value: Time.now.strftime("%Y-%m-%d") %>
+      <%= f.date_field :birthday, value: Date.parse('1997-9-7').strftime("%Y-%m-%d") %>
     </div>
-
-    <div class="field">
-      <%= f.label I18n.t('activerecord.attributes.user.password') %>
-      <%= f.password_field :password %>
-    </div>
-
-    <div class="field">
-      <%= f.label I18n.t('activerecord.attributes.user.password_confirmation') %>
-      <%= f.password_field :password_confirmation %>
-    </div>
-
 
     <div class="field">
       <%= f.label I18n.t('activerecord.attributes.user.nickname') %>

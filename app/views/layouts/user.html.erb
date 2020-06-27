@@ -19,7 +19,6 @@
               <li><%= link_to I18n.t('activerecord.views.see_stylists'), users_path, class: "list" %></li>
             <% end %>
               <li><%= link_to I18n.t('activerecord.views.mypage'), user_path(current_user.id), class: "list" %></li>
-              <li><%= link_to I18n.t('activerecord.views.edit_mypage'), edit_user_path(current_user.id), class: "list" %></li>
               <li><%= button_to I18n.t('activerecord.views.logout'), session_path(current_user.id), method: :delete, class: "list" %></li>
               <li><%= button_to I18n.t('activerecord.views.goodbye'), user_path(current_user.id), data: { confirm: "退会しますか?" }, method: :delete, class: "list" %></li>
             <% end %>
