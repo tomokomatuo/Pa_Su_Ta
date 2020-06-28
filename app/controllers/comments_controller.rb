@@ -2,13 +2,14 @@ class CommentsController < ApplicationController
   before_action :set_user, only: [:create, :edit, :update]
   def create
     @comment = @user.comments.build(comment_params)
-    respond_to do |format|
+    # respond_to do |format|
       if @comment.save
-        format.js { render :index }
+        # format.js { render :index }
+        render 'index.js.erb'
       else
-        format.html { redirect_to user_path(@user), notice: '投稿できませんでした...' }
+        # format.html { redirect_to user_path(@user), notice: '投稿できませんでした...' }
+        redirect_to user_path(@user), notice: '投稿できませんでした...'
       end
-    end
   end
   def edit
     @comment = @user.comments.find(params[:id])

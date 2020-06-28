@@ -47,31 +47,32 @@ RSpec.describe 'ユーザー・スタイリスト管理機能', type: :system do
         visit users_path
         visit user_path(@second_user)
         fill_in 'comment[review]', with: 'こんにちは'
+        # find('#toukou').click
         click_on '投稿する'
         expect(page).to have_content "こんにちは"
        end
      end
      context 'メッセージ画面に遷移した場合' do
       it 'メッセージを投稿できる' do
-       visit users_path
-       click_on 'send_message', match: :first
-       fill_in 'message[body]', with: 'こんにちは'
-       click_on 'メッセージする'
-       expect(page).to have_content "こんにちは"
+      conversation_a = Conversation.create(sender_id: @user.id, recipient_id: @second_user.id)
+      visit conversation_messages_path(conversation_a)
+      fill_in 'message_body', with: 'こんにちは'
+      click_on 'メッセージする'
+      expect(page).to have_content "こんにちは"
       end
-    end
       it 'ログアウトできる' do
        click_on 'ログアウト'
        expect(current_path).to eq new_session_path
       end
       it '退会できる' do
         click_on '退会'
-        page.driver.browser.switch_to.alert.accept
+        # page.driver.browser.switch_to.alert.accept
         expect(current_path).to eq new_user_path
       end
       it '登録ページに行けない' do
         visit new_user_path
         expect(current_path).to eq user_path(@user)
       end
+    end
   end
 end

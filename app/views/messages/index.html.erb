@@ -22,13 +22,13 @@
   <% end %>
 </div>
 <section class="message-new yellow blue">
-<%= form_with(model: [@conversation, @message]) do |f| %>
+<%= form_with(model: [@conversation, @message], local: true) do |f| %>
   <div class="field">
     <%= f.text_area :body, class: "form-control" %>
   </div>
     <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
   <div>
-  <%= f.submit I18n.t('activerecord.views.message'), class: 'btn btn-success' %>
+  <%= f.submit I18n.t('activerecord.views.message') %>
   </div>
 <% end %>
 </section>

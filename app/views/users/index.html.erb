@@ -16,14 +16,13 @@
 <% end %>
 </div>
 
-<table>
 <% @users.each do |user| %>
   <% if user.adviser? %>
   <div class="index_css flex_shokai">
   　<% if user.image? %>
     <%= image_tag user.image.url %>
     <% else %>
-    <%= image_tag "/default.png", :size => '200x130' %>
+    <%= image_tag "default.png", :size => '200x130' %>
 　　<% end %>
     <%= user.nickname %>
     <%= user.age %>
