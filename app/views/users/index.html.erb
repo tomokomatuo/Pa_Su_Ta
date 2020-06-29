@@ -2,7 +2,7 @@
 
 <div class="kensaku clearfix">
 <%= search_form_for(@q, url: users_path, local: true) do |f| %>
-  <%= f.label :content, I18n.t('activerecord.views.search') %>
+  <%= f.label :content, I18n.t('activerecord.views.search_introduction') %>
   <%= f.search_field :content_cont %>
   
   <%= f.label I18n.t('activerecord.attributes.user.gender') %>
