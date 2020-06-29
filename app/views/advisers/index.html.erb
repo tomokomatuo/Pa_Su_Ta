@@ -1,5 +1,22 @@
 <h1 class="heading02">ユーザー一覧</h1>
- <% @users.each do |user| %>
+<div class="kensaku clearfix">
+<%= search_form_for(@q, url: advisers_path, local: true) do |f| %>
+  <%= f.label :content, I18n.t('activerecord.views.search') %>
+  <%= f.search_field :content_cont %>
+  
+  <%= f.label I18n.t('activerecord.attributes.user.gender') %>
+　<%= f.radio_button :gender_eq, '', {:checked => true} %>指定なし
+  <%= f.radio_button :gender_eq, 0 %>男性
+  <%= f.radio_button :gender_eq, 1 %>女性
+  
+  <%= f.submit I18n.t('activerecord.views.search') %>
+<% end %>
+</div>
+
+
+
+
+<% @users.each do |user| %>
  <% unless user.adviser? %>
  <div class="index_css flex_display">
  <div class="display">

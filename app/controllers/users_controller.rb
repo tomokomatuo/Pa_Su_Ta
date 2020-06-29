@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true)
   end
+  
   def new
     @user = User.new
   end
