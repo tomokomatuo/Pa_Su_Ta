@@ -9,18 +9,20 @@
 }
 .introduction {
   text-align: center;
-  top: 100px;
+  top: 70px;
 }
 
 @keyframes typing { from { width: 0; } }
 @keyframes caret { 50% { border-color: transparent; } }
 
 .title {
+  text-shadow: -4px -4px 1px #fff;
+margin-top: 50px;
 font-family: monospace; 
 width: 11ch;
 border-right: .08em solid;
 overflow: hidden;
-font-size: 8em;
+font-size: 15em;
 white-space: nowrap;
 animation: typing 5s steps(11, end), caret .5s step-end infinite;
 color: rgb(220, 193, 43);
@@ -40,6 +42,7 @@ body {
   transform: scale(0.9);
   opacity: 0;
   transition: 0.1s; 
+  font-size: large;
 }
 
 h3 {
@@ -70,8 +73,8 @@ h3 {
 
 .button-body{
   background-color: rgb(215, 149, 35);
-  width: 230px;
-  height: 75px;
+  width: 200px;
+  height: 50px;
   border-radius: 60px;
   padding: 20px 40px 20px 40px;
   border: #fff;

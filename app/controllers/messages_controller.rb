@@ -27,12 +27,16 @@ class MessagesController < ApplicationController
 
   def create
     @message = @conversation.messages.build(message_params)
+
     if @message.save
       redirect_to conversation_messages_path(@conversation)
+    elsif @message.id == nil
+      render 'index'
     else
       render 'index'
     end
   end
+  
   private
   def message_params
     params.require(:message).permit(:body, :user_id)

@@ -13,44 +13,44 @@
 <%= form_with(model: @user, local: true) do |f| %>  
   
   <div class="field">
-  <h6><%= f.label I18n.t('activerecord.attributes.user.name') %><span class="label label-danger">必須</span></h6>
+  <h6><%= f.label I18n.t('activerecord.attributes.user.name') %><span class="label">必須</span></h6>
     <%= f.text_field :name %>
   </div>
   
   <div class="field">
-  <h6><%= f.label :email %><span class="label label-danger">必須</span></h6>
+  <h6><%= f.label :email %><span class="label">必須</span></h6>
     <%= f.email_field :email %>
   </div>
   
   <div class="field">
-  <h6><%= f.label I18n.t('activerecord.attributes.user.address') %><span class="label label-danger">必須</span></h6>
+  <h6><%= f.label I18n.t('activerecord.attributes.user.address') %><span class="label">必須</span></h6>
     <%= f.text_field :address %>
   </div>
   
   <div class="field"><br>
   
-  <h6><%= f.label I18n.t('activerecord.attributes.user.phone_number') %><span class="label label-danger">必須・ハイフン不要</span></h6>
+  <h6><%= f.label I18n.t('activerecord.attributes.user.phone_number') %><span class="label">必須・ハイフン不要</span></h6>
     <%= f.text_field :phone_number %>
   </div>
   
   <div class="field">
-  <h6><%= f.label I18n.t('activerecord.attributes.user.birthday') %><span class="label label-danger">必須</span></h6>
+  <h6><%= f.label I18n.t('activerecord.attributes.user.birthday') %><span class="label">必須</span></h6>
     <%= f.date_field :birthday, value: Date.parse('1997-9-7').strftime("%Y-%m-%d") %>
   </div>
 
   <div class="field">
-  <h6><%= f.label I18n.t('activerecord.attributes.user.password') %><span class="label label-danger">必須</span></h6>
+  <h6><%= f.label I18n.t('activerecord.attributes.user.password') %><span class="label">必須</span></h6>
     <%= f.password_field :password %>
   </div>
 
   <div class="field">
-  <h6><%= f.label I18n.t('activerecord.attributes.user.password_confirmation') %><span class="label label-danger">必須</span></h6>
+  <h6><%= f.label I18n.t('activerecord.attributes.user.password_confirmation') %><span class="label">必須</span></h6>
     <%= f.password_field :password_confirmation %>
   </div>
 
 
   <div class="field">
-  <h6><%= f.label I18n.t('activerecord.attributes.user.nickname') %><span class="label label-danger">必須</span></h6>
+  <h6><%= f.label I18n.t('activerecord.attributes.user.nickname') %><span class="label">必須</span></h6>
     <%= f.text_field :nickname %>
   </div>
   
@@ -97,14 +97,14 @@
 <%= form_for(:session, url: sessions_path) do |f| %>
   <%= f.hidden_field :email, value: 'kenichi11@gmail.com' %>
   <%= f.hidden_field :password, value: 'password' %>
-  <%= f.submit 'テストスタイリストログイン', class: 'btn btn-primary' %>
+  <%= f.submit 'テストスタイリストログイン', class: 'btn' %>
 <% end %>
 </div>
 <div class="action field">
 <%= form_for(:session, url: sessions_path) do |f| %>
   <%= f.hidden_field :email, value: 'asak11@gmail.com' %>
   <%= f.hidden_field :password, value: 'password' %>
-  <%= f.submit 'テストユーザーログイン', class: 'btn btn-danger' %>
+  <%= f.submit 'テストユーザーログイン', class: 'btn' %>
 <% end %>
 </div>
 

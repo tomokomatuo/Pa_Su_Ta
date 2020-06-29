@@ -11,19 +11,23 @@
 html {
   font-size: 62.5%;
   height: 100%;
+  padding: 0px 0px;
   }
 body {
   height: 100%;
+  margin: 0px 0px;
   }
 .container {
   position: relative;
   width: 100%;
   margin: 0;
   min-height: 100%;
-  padding: 0;
+  padding-top: 0px;
   padding-bottom: 60px;
 }
 .header {
+  position: absolute;
+  top: 0;
   height: 60px;
   width: 100%;
   background-color: rgb(255, 140, 0);
@@ -50,6 +54,7 @@ body {
   margin-left: 20px;
   float:left;
   color: blue;
+  margin-top: 2px;
 }
 
 .header-list {
@@ -64,9 +69,15 @@ body {
 }
 .header li .list {
   color: blue;
+  text-decoration: none;
+  font-size: 2em;
+  margin-right: 2em;
 }
 .content-new {
   margin-bottom: 100px
+}
+.jikoshoukai {
+  font-size: 10px;
 }
 
 .clearfix:after {
@@ -79,17 +90,7 @@ body {
   top: 50%;
   right: 50%;
 }
-// .registration {
-//   max-width:400px;
-//     border: solid 1px rgb(239, 255, 62);
-//     border-radius:10px 10px 0px 0px;
-// }
-// .registration-header {
-//   background: rgba(198, 197, 197, 0.988);
-//     border-radius:10px 10px 0px 0px;
-//     padding: 15px;
-//     font-size: 25px;
-// }
+
 .panel {
   color : rgba(0,0,0,1);
   width: 30%;
@@ -115,6 +116,13 @@ body {
 }
 .label {
   color: rgba(255,255,255,1);
+  border-style: solid, red;
+  background-color: red;
+}
+.btn {
+  background-color: green;
+  color: white;
+  border-radius: 10px;
 }
 
 .box10 {
@@ -127,6 +135,7 @@ body {
   width: 45%;
   height: 50%;
   margin-bottom: 15px;
+  margin-top: 10rem;
 }
 .introduction {
   margin: 0; 
@@ -140,7 +149,11 @@ body {
 .stats{
   margin-left: 50px;
   margin-top: 40px;
+  font-size: 5px;
+  text-decoration: none;
+  font-weight: bold;
 }
+
 
 .nickname {
   font-size: 30px;
@@ -168,7 +181,7 @@ body {
 .box1 {
   border: 2px solid #333;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 150px;
 }
 .follow_btn {
   margin-right: 20px;
@@ -194,9 +207,10 @@ body {
   font-weight:bold;
   position: relative;
   padding: 10px;
-  background: #b8b8b8;
+  background: rgb(230, 206, 71);
   margin-right:20px;
-  width: 25%;
+  width: 20%;
+  margin-top: 5em
 }
 .heading02:before {
   content: " ";
@@ -230,19 +244,49 @@ body {
   background: #fff8e8;
   border-left: solid 10px #ffc06e;
   margin: 30px 50px;
+  font-size: 20px;
 }
-
-.flex_shokai {
+.flex_display {
   display: flex;
 }
+
+.display {
+  font-size: 18px;
+}
+
+.namae {
+  font-size: 13px;
+  margin-left: 15px;
+  margin-right: 20px;
+}
+.link_css {
+  font-size: 5px;
+  margin-top: 30px;
+  text-decoration: none;
+}
+.link_index {
+  text-decoration: none;
+}
+
+// .flex_shokai {
+//   display: flex;
+// }
 
 .shokai {
   word-break: break-all;
+  margin-top: 50px;
+  margin-right: 10px;
 }
-.flex_namae {
-  display: flex;
-  flex-direction: column;
-}
+// .flex_namae {
+//   display: flex;
+// }
+// .namae {
+//   font-size: 15px;
+// }
+// .flex_link_index {
+//   display: flex;
+//   // flex-flow: column;
+// }
 
 .heading03 {
   font-weight:bold;
@@ -304,7 +348,7 @@ body {
 
 .box15 {
   padding: 0.2em 0.5em;
-  margin: 2em 40%;
+  margin: 10em 40%;
   color: #565656;
   background: #ffeaea;
   box-shadow: 0px 0px 0px 10px #ffeaea;
@@ -321,7 +365,7 @@ body {
   padding: 0.2em 0.5em;
   color: #454545;
   width:25%;
-  margin: 2em 40%;
+  margin: 10em 40%;
   text-align: center;
   height: 39%
 }
@@ -334,4 +378,11 @@ body {
   border-style: solid;
   border-color: #ffdb88 #fff #ffdb88;
   box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+#comments_area {
+  font-size: 15px;
+}
+.content_css {
+  font-size: 15px;
 }

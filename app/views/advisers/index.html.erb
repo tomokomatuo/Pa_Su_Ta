@@ -6,7 +6,7 @@
   <%= f.search_field :content_cont %>
 
   <%= f.label I18n.t('activerecord.attributes.user.age') %>
-  <%= f.select :age_eq, options_for_select([['指定なし', ''], ['20代','20代'], ['30代','30代'], ['40代','40代'], ['50代以上','50代以上']], :selected => :age) %>
+  <%= f.select :age_eq, options_for_select([['指定なし', ''], ["20代","20代"], ["30代","30代"], ["40代","40代"], ["50代以上","50代以上"]], :selected => :age) %>
   
   <%= f.label I18n.t('activerecord.attributes.user.gender') %>
 　<%= f.radio_button :gender_eq, '', {:checked => true} %>指定なし
@@ -16,30 +16,35 @@
   <%= f.submit I18n.t('activerecord.views.search') %>
 <% end %>
 </div>
+
 <% @users.each do |user| %>
-  <% unless user.adviser? %>
-  <div class="index_css flex_shokai">
-  <p class="shokai">
-  <% if user.image? %>
-  <%= image_tag user.image.url, class: "image_shape" %>
-  <% else %>
-  <%= image_tag "default.png", :size => '200x130', class: "image_shape" %>
-　　<% end %>
-  </p>
-    <p class="shokai flex_namae">
-    <h4 class="namae"><%= user.nickname %>さん</h4>
-    <p class="namae"><%= user.age %></p>
-    <% unless user.hide_gender? %>
-    <p class="namae"><%= user.gender %></p>
-    <% end %>
-    </p>
-    <p class="shokai"><%= user.content %></p>
-    <p class="shokai">
-    <%= link_to I18n.t('activerecord.views.message'), conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %>
-    <%= render 'follow_form', user: user %>
-    <%= link_to I18n.t('activerecord.views.detail'), user_path(user.id) %>
-    </p>
-  </div>
+ <% unless user.adviser? %>
+ <div class="index_css flex_display">
+ <div class="display">
+ <% if user.image? %>
+   <%= image_tag user.image.url, class: "image_shape" %>
+ <% else %>
+   <%= image_tag "default.png", :size => '200x130', class: "image_shape" %>
+　  <% end %>
+ </div>
+ <div class="display">
+   <h4 class="namae"><%= user.nickname %>さん</h4>
+   <p class="namae"><%= user.age %></p>
+   <% unless user.hide_gender? %>
+     <p class="namae"><%= user.gender %></p>
+   <% end %>
+ </div>
+ <div class="display shokai">
+   <%= user.content %>
+   </div>
+   <div class="display link_css">
+     <p class="link_index"><%= link_to I18n.t('activerecord.views.message'), conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></p>
+   <p><%= render 'follow_form', user: user %></p>
+   <p class="link_index"><%= link_to I18n.t('activerecord.views.detail'), user_path(user.id) %></p>
+   </div>
+
+</div>
   <% end %>
+ 
 <% end %>
       

@@ -18,22 +18,31 @@
 
 <% @users.each do |user| %>
   <% if user.adviser? %>
-  <div class="index_css flex_shokai">
-  　<% if user.image? %>
-    <%= image_tag user.image.url %>
-    <% else %>
-    <%= image_tag "default.png", :size => '200x130' %>
-　　<% end %>
-    <%= user.nickname %>
-    <%= user.age %>
-    <% unless user.hide_gender? %>
-    <%= user.gender %>
-    <% end %>
-    <%= user.content %>
-    <%= link_to I18n.t('activerecord.views.message'), conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post, id: "send_message" %></td>
-    <%= render 'follow_form', user: user %>
-    <%= link_to I18n.t('activerecord.views.detail'), user_path(user.id) %>
+  <div class="index_css flex_display">
+  <div class="display">
+  <% if user.image? %>
+    <%= image_tag user.image.url, class: "image_shape" %>
+  <% else %>
+    <%= image_tag "default.png", :size => '200x130', class: "image_shape" %>
+　  <% end %>
   </div>
+  <div class="display">
+    <h4 class="namae"><%= user.nickname %>さん</h4>
+    <p class="namae"><%= user.age %></p>
+    <% unless user.hide_gender? %>
+      <p class="namae"><%= user.gender %></p>
+    <% end %>
+  </div>
+  <div class="display shokai">
+    <%= user.content %>
+    </div>
+    <div class="display link_css">
+      <p class="link_index"><%= link_to I18n.t('activerecord.views.message'), conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></p>
+    <p><%= render 'follow_form', user: user %></p>
+    <p class="link_index"><%= link_to I18n.t('activerecord.views.detail'), user_path(user.id) %></p>
+    </div>
+
+</div>
   <% end %>
 <% end %>
 
