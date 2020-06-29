@@ -30,8 +30,8 @@ class MessagesController < ApplicationController
 
     if @message.save
       redirect_to conversation_messages_path(@conversation)
-    elsif @message.id == nil
-      render 'index'
+    # elsif @message.id == nil
+    #   render 'index'
     else
       render 'index'
     end
