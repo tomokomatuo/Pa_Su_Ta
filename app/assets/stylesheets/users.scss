@@ -260,26 +260,23 @@ body {
   margin-right: 20px;
 }
 .link_css {
-  font-size: 5px;
+  font-size: 15px;
   margin-top: 30px;
   text-decoration: none;
 }
-.link_index {
-  text-decoration: none;
-}
 
-// .flex_shokai {
-//   display: flex;
-// }
+
 
 .shokai {
   word-break: break-all;
-  margin-top: 50px;
+  margin-top: 5px;
   margin-right: 10px;
+  padding: 20px 40px;
 }
-// .flex_namae {
-//   display: flex;
-// }
+
+.flex_namae {
+  float: right;
+}
 // .namae {
 //   font-size: 15px;
 // }
@@ -328,9 +325,10 @@ body {
 }
 .kensaku {
   margin-left: 55%;
+  margin-right: 48px;
   font-weight:bold;
   position: relative;
-  background: #b8b8b8;
+  background: rgb(230, 206, 71);
   padding: 10px;
   color: black;
 }
@@ -343,7 +341,12 @@ body {
   width: 0;
   height: 0;
   border: 10px solid transparent;
-  border-top: 10px solid #b8b8b8;
+  border-top: 10px solid rgb(230, 206, 71);
+}
+.key {
+  margin-left: 2em;
+  border: solid 1px #fff;
+  background: #fff;
 }
 
 .box15 {

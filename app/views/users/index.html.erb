@@ -2,15 +2,15 @@
 
 <div class="kensaku clearfix">
 <%= search_form_for(@q, url: users_path, local: true) do |f| %>
-  <%= f.label :content, I18n.t('activerecord.views.search_introduction') %>
+  <%= f.label :content, I18n.t('activerecord.views.search_introduction'), class: "key" %>
   <%= f.search_field :content_cont %>
-  
-  <%= f.label I18n.t('activerecord.attributes.user.gender') %>
+   
+  <%= f.label I18n.t('activerecord.attributes.user.gender'), class: "key" %>
 　<%= f.radio_button :gender_eq, '', {:checked => true} %>指定なし
   <%= f.radio_button :gender_eq, 0 %>男性
   <%= f.radio_button :gender_eq, 1 %>女性
-  
-  <%= f.submit I18n.t('activerecord.views.search') %>
+ 
+  <%= f.submit I18n.t('activerecord.views.search'), class: "btn" %>
 <% end %>
 </div>
 
@@ -23,16 +23,14 @@
     <%= image_tag user.image.url, class: "image_shape" %>
   <% else %>
     <%= image_tag "default.png", :size => '200x130', class: "image_shape" %>
-　  <% end %>
-  </div>
-  <div class="display">
+    <% end %>
     <h4 class="namae"><%= user.nickname %>さん</h4>
+     </div>
+     <div class="display shokai">
     <p class="namae"><%= user.age %></p>
     <% unless user.hide_gender? %>
       <p class="namae"><%= user.gender %></p>
     <% end %>
-  </div>
-  <div class="display shokai">
     <%= user.content %>
     </div>
     <div class="display link_css">
@@ -40,8 +38,7 @@
     <p><%= render 'follow_form', user: user %></p>
     <p class="link_index"><%= link_to I18n.t('activerecord.views.detail'), user_path(user.id) %></p>
     </div>
-
-</div>
+    </div>
   <% end %>
 <% end %>
 
