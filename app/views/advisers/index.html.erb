@@ -1,23 +1,5 @@
 <h1 class="heading02">ユーザー一覧</h1>
-  <div class="kensaku clearfix">
-<%= search_form_for @q do |f| %>
-  
-  <%= f.label :content, I18n.t('activerecord.views.search') %>
-  <%= f.search_field :content_cont %>
-
-  <%= f.label I18n.t('activerecord.attributes.user.age') %>
-  <%= f.select :age_eq, options_for_select([['指定なし', ''], ["20代","20代"], ["30代","30代"], ["40代","40代"], ["50代以上","50代以上"]], :selected => :age) %>
-  
-  <%= f.label I18n.t('activerecord.attributes.user.gender') %>
-　<%= f.radio_button :gender_eq, '', {:checked => true} %>指定なし
-  <%= f.radio_button :gender_eq, 1 %>男性
-  <%= f.radio_button :gender_eq, 2 %>女性
-  
-  <%= f.submit I18n.t('activerecord.views.search') %>
-<% end %>
-</div>
-
-<% @users.each do |user| %>
+ <% @users.each do |user| %>
  <% unless user.adviser? %>
  <div class="index_css flex_display">
  <div class="display">

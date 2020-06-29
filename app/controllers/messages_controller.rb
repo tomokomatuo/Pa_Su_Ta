@@ -33,7 +33,7 @@ class MessagesController < ApplicationController
     # elsif @message.id == nil
     #   render 'index'
     else
-      render 'index'
+      redirect_to conversation_messages_path(@conversation)
     end
   end
   
