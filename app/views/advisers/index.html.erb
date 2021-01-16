@@ -12,6 +12,12 @@
   <%= f.submit I18n.t('activerecord.views.search'), class: "btn" %>
 <% end %>
 </div>
+
+<% @all_ranks.each do |user| %>
+<% unless user.adviser? %>
+  <%= user.name %>
+<% end %>
+<% end %>
 <% @users.each do |user| %>
  <% unless user.adviser? %>
  <div class="index_css flex_display">
