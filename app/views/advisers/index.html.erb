@@ -12,13 +12,15 @@
   <%= f.submit I18n.t('activerecord.views.search'), class: "btn" %>
 <% end %>
 </div>
-
+<section class="unit">
+<div class="rank">
 <% @all_ranks.each do |user| %>
 <% unless user.adviser? %>
   <%= user.nickname %>
 <% end %>
 <% end %>
-
+</div>
+<div class="self_introduction">
 <% @users.each do |user| %>
  <% unless user.adviser? %>
  <div class="index_css flex_display">
@@ -44,5 +46,7 @@
     </div>
     </div>
   <% end %>
+  </div>
+  </section>
  <% end %>
       
