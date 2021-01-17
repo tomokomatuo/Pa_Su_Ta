@@ -14,6 +14,11 @@
 <% end %>
 </div>
 
+<% @all_ranks.each do |user| %>
+  <% if user.adviser? %>
+    <%= user.nickname %>
+  <% end %>
+  <% end %>
 
 <% @users.each do |user| %>
   <% if user.adviser? %>

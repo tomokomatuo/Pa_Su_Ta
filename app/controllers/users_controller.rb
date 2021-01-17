@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def index
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true)
+    @all_ranks = User.find(Relationship.group(:followed_id).order('count(followed_id) desc').limit(3).pluck(:followed_id))
   end
   
   def new
@@ -63,6 +64,10 @@ class UsersController < ApplicationController
                                  :address, :phone_number, :image, :gender, :content,
                                  :age, :adviser, :hide_gender, :clothes_icon,
                                  :password_confirmation, :image_cache)
+  end
+
+  def relationship_params
+    params.require(:relationship).permit(:followed_id)
   end
 
   def set_user
