@@ -13,14 +13,15 @@
 <% end %>
 </div>
 <section class="unit">
-<div class="rank">
+<p><h4>ユーザーランキング</h4></p>
+<div class="rank cleafix">
 <% @all_ranks.each do |user| %>
 <% unless user.adviser? %>
   <%= user.nickname %>
 <% end %>
 <% end %>
 </div>
-<div class="self_introduction">
+<div class="self_introduction clearfix">
 <% @users.each do |user| %>
  <% unless user.adviser? %>
  <div class="index_css flex_display">
